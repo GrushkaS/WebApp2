@@ -6,7 +6,8 @@ import {DataService} from '../services/data.service';
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
-  providers: [DataService]
+  providers: [DataService],
+  styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent implements OnInit {
 

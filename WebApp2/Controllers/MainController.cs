@@ -15,14 +15,13 @@ namespace WebApp2.Controllers
         public MainController(ApplicationContext context)
         {
             db = context;
-
-            //if (!db.Posts.Any())
-            //{
-            //    db.Posts.Add(new Post { Title = "iPhone X", Text = "Apple"});
-            //    db.Posts.Add(new Post { Title = "asdasd", Text = "Appasdasdasle" });
-            //    db.Posts.Add(new Post { Title = "iPhone Xllllll", Text = "asdasdsadasd" });
-            //    db.SaveChanges();
-            //}
+            if (!db.Posts.Any())
+            {
+                db.Posts.Add(new Post { Title = "C#", Text = "Console.WriteLine('Hello world')", Author = "Admin" });
+                db.Posts.Add(new Post { Title = "C#", Text = "Using System;", Author = "Admin" });
+                db.Posts.Add(new Post { Title = "Angular", Text = "@Injectable", Author = "Admin" });
+                db.SaveChanges();
+            }
         }
 
         [HttpGet]
