@@ -47,7 +47,7 @@ namespace WebApp2
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
             if (!env.IsDevelopment())
             {
@@ -61,7 +61,7 @@ namespace WebApp2
                 endpoints.MapControllers();
                 //endpoints.MapControllerRoute(
                 //    name: "default",
-                //    pattern: "{controller}/{action=Index}/{id?}");
+                //    pattern: "posts-list/{controller}/{action=Index}/{id?}");
             });
 
             app.UseSpa(spa =>

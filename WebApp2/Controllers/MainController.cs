@@ -8,13 +8,21 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebApp2.Controllers
 {
     [ApiController]
-    [Route("posts")]
-    public class MainController: Controller
+    [Route("api/posts")]
+    public class MainController : Controller
     {
         ApplicationContext db;
         public MainController(ApplicationContext context)
         {
             db = context;
+
+            //if (!db.Posts.Any())
+            //{
+            //    db.Posts.Add(new Post { Title = "iPhone X", Text = "Apple"});
+            //    db.Posts.Add(new Post { Title = "asdasd", Text = "Appasdasdasle" });
+            //    db.Posts.Add(new Post { Title = "iPhone Xllllll", Text = "asdasdsadasd" });
+            //    db.SaveChanges();
+            //}
         }
 
         [HttpGet]
@@ -26,7 +34,44 @@ namespace WebApp2.Controllers
         [HttpGet("{id}")]
         public Post Get(int id)
         {
-            return db.Posts.FirstOrDefault(x => x.Id==id);
+            return db.Posts.FirstOrDefault(x => x.Id == id);
         }
+
+        [HttpPost]
+        public IActionResult Post(Post post)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Posts.Add(post);
+                db.SaveChanges();
+                return Ok(post);
+            }
+            return BadRequest(ModelState);
+        }
+
+        [HttpPut]
+        public IActionResult Put(Post post)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Update(post);
+                db.SaveChanges();
+                return Ok(post);
+            }
+            return BadRequest(ModelState);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            Post post = db.Posts.FirstOrDefault(x => x.Id == id);
+            if (post != null)
+            {
+                db.Posts.Remove(post);
+                db.SaveChanges();
+            }
+            return Ok(post);
+        }
+
     }
 }
