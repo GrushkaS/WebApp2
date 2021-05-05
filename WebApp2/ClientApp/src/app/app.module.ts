@@ -21,6 +21,9 @@ const appRoutes: Routes = [
   { path: 'posts-list/:id', component: PostViewComponent, pathMatch: 'full'},
   { path: 'log-in', component: LogInComponent},
   { path: 'sign-up', component: SignUpComponent, canDeactivate: [ExitAboutGuard]},
+
+  {path: 'admin', loadChildren: './admin/app.admin.module#AppAdminModule'},
+
   { path: '**', component: NotFoundComponent}
 ];
 

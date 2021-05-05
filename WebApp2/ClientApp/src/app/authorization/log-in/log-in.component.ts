@@ -7,8 +7,13 @@ import {Router} from '@angular/router';
   styleUrls: ['./log-in.component.css']
 })
 export class LogInComponent {
+
+
   constructor(private router: Router) {
   }
+
+
+
   goHome() {
     this.router.navigate(['']);
   }
