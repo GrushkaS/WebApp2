@@ -17,9 +17,7 @@ input{
   align-items: center;
 }
 
-.container-auth-signup{
-  display: inline-flex;
-}
+
 label{
   color: var(--primary-color);
 }

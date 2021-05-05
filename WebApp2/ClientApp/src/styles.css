@@ -10,14 +10,15 @@ code {
 }
 
 div{
-  background: transparent;
+
 }
 
 .main-container{
   min-width: 440px;
   max-width: 1080px;
   margin: auto;
-  /*opacity: 0.99999;*/
+  /*background-color: transparent;*/
+  /*background-image: url("./assets/images/26_april_8.jpg");*/
 }
 
 .btn-primary {
@@ -44,3 +45,4 @@ svg#clouds {
   --success-color: #28a745;
   --warning-color: #FF6600;
 }
+
