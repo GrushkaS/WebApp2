@@ -10,11 +10,13 @@ import { HomeComponent } from './home/home.component';
 import { PostListComponent } from './post-list/post-list.component';
 import {PostViewComponent} from './post-view/post-view.component';
 import {NotFoundComponent} from './not-found/not-found.component';
+import {LogInComponent} from './authorization/log-in/log-in.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'posts-list', component: PostListComponent},
   { path: 'posts-list/:id', component: PostViewComponent, pathMatch: 'full'},
+  { path: 'log-in', component: LogInComponent},
   { path: '**', component: NotFoundComponent}
 ];
 
@@ -26,7 +28,8 @@ const appRoutes: Routes = [
     HomeComponent,
     PostListComponent,
     PostViewComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    LogInComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

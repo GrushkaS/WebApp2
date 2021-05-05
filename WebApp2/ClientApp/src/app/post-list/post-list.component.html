@@ -2,17 +2,21 @@
 <table class="table table-striped">
   <thead class="bg-primary">
   <tr>
+    <td>Id</td>
     <td>Title</td>
     <td>Author</td>
+    <td>Date</td>
     <td></td>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let p of posts">
+      <td>{{p?.id}}</td>
       <td>{{p?.title}}</td>
       <td>{{p?.author}}</td>
+      <td>{{p?.date}}</td>
       <td>
-        <a [routerLink]="[p.id]" class="btn btn-sm btn-primary" >Open</a>
+        <a [routerLink]="[p.id]" class="btn btn-sm btn-dark" >Open</a>
       </td>
   </tr>
   </tbody>

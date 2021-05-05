@@ -4,5 +4,5 @@ thead {
 }
 
 tbody {
-  color: #178bff;
+  color: var(--primary-color);
 }

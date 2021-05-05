@@ -1,0 +1,27 @@
+.container-auth{
+  width: 450px;
+  display: grid;
+
+}
+
+button{
+  justify-content: right;
+}
+
+input{
+  margin-bottom: 0.5rem;
+}
+
+.container-auth-login{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-auth-signup{
+display: inline-flex;
+}
+label{
+  color: var(--primary-color);
+}
+
