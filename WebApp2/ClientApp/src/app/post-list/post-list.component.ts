@@ -14,6 +14,7 @@ export class PostListComponent implements OnInit {
   post: Post = new Post();
   posts: Post[];
   tableMode: boolean = true;
+  searchString = '';
 
   constructor(private dataService: DataService) { }
 
