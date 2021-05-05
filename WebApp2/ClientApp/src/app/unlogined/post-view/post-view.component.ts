@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Post} from '../models/post';
-import {DataService} from '../services/data.service';
+import {Post} from '../../models/post';
+import {DataService} from '../../services/data.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -14,6 +14,7 @@ export class PostViewComponent implements  OnInit {
   id: number;
 
   constructor(private dataService: DataService, private router: Router, activeRoute: ActivatedRoute) {
+    // tslint:disable-next-line:radix
     this.id = Number.parseInt(activeRoute.snapshot.params['id']);
   }
 

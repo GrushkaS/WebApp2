@@ -33,7 +33,7 @@ svg#clouds {
   left: -230px;
   z-index: -10;
   width: 1920px;
-  opacity: 0.4;
+  opacity: 0.6;
 }
 
 :root {

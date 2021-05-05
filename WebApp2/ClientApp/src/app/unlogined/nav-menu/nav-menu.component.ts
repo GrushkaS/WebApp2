@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-nav-menu',
@@ -8,8 +8,12 @@ import {Router} from '@angular/router';
 })
 export class NavMenuComponent {
   isExpanded = false;
+  isAdminLayout = false;
 
-  constructor(private router: Router) {
+
+
+  constructor(private router: Router, activeRoute: ActivatedRoute) {
+    console.log('Active url: ' + activeRoute.toString());
   }
 
   goHome() {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ComponentCanDeactivate} from '../../services/exit.about.guard';
+import { ComponentCanDeactivate} from '../../../services/exit.about.guard';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 

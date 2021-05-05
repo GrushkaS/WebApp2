@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import {Component} from "@angular/core";
 
 @Component({
-  selector: 'admin-app-home',
+  selector: 'admin-home-app-home',
   templateUrl: './admin-home.component.html',
 })
-export class AdminHomeComponent {
+export class AdminHomeComponent{
+
 }
