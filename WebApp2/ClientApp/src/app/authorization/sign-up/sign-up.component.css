@@ -18,9 +18,8 @@ input{
 }
 
 .container-auth-signup{
-display: inline-flex;
+  display: inline-flex;
 }
 label{
   color: var(--primary-color);
 }
-

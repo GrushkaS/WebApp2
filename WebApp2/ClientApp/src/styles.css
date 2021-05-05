@@ -17,7 +17,7 @@ div{
   min-width: 440px;
   max-width: 1080px;
   margin: auto;
-  opacity: 0.99999;
+  /*opacity: 0.99999;*/
 }
 
 .btn-primary {
