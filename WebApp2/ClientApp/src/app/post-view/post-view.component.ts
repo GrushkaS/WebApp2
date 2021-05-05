@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Post} from '../models/post';
 import {DataService} from '../services/data.service';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-post-view',
@@ -28,6 +28,10 @@ export class PostViewComponent implements  OnInit {
           this.post = data;
         });
     }
+  }
+
+  goPostsList() {
+    this.router.navigate(['/posts-list']);
   }
 
 }

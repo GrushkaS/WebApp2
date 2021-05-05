@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Post} from '../models/post';
 import {DataService} from '../services/data.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-post-list',
@@ -16,7 +17,7 @@ export class PostListComponent implements OnInit {
   tableMode: boolean = true;
   searchString = '';
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private router: Router) { }
 
   ngOnInit() {
     this.loadPosts();  // загрузка данных при старте компонента
@@ -55,5 +56,7 @@ export class PostListComponent implements OnInit {
     this.cancel();
     this.tableMode = false;
   }
+
+
 
 }
