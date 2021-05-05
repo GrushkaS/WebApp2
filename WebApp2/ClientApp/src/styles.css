@@ -9,6 +9,17 @@ code {
   color: #e01a76;
 }
 
+div{
+  background: transparent;
+}
+
+.main-container{
+  min-width: 440px;
+  max-width: 1080px;
+  margin: auto;
+  opacity: 0.99999;
+}
+
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;
@@ -22,4 +33,14 @@ svg#clouds {
   z-index: -10;
   width: 1920px;
   opacity: 0.6;
+}
+
+:root {
+  --primary-color: #3399ff;
+  --primary-background: #f1f6ff;
+  --dark-color: #333333;
+  --light-color: #f4f4f4;
+  --danger-color: #dc3545;
+  --success-color: #28a745;
+  --warning-color: #FF6600;
 }

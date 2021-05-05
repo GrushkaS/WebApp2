@@ -1,0 +1,27 @@
+.post{
+
+}
+
+h1{
+  margin-bottom: .5rem;
+  color: var(--dark-color);
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info{
+
+}
+
+strong{
+  margin-right: 1rem;
+}
+small{
+  color: var(--danger-color);
+}
+
+

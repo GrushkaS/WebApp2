@@ -15,6 +15,7 @@ namespace WebApp2.Controllers
         public MainController(ApplicationContext context)
         {
             db = context;
+          
             if (!db.Posts.Any())
             {
                 db.Posts.Add(new Post { Title = "C#", Text = "Console.WriteLine('Hello world')", Author = "Admin" });
