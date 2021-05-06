@@ -29,33 +29,33 @@ export class PostListComponent implements OnInit {
     console.log(this.posts);
   }
 
-  save() {
-    if (this.post.id == null) {
-      this.dataService.createPost(this.post)
-        .subscribe((data: Post) => this.posts.push(data));
-    } else {
-      this.dataService.updatePost(this.post)
-        .subscribe(data => this.loadPosts());
-    }
-    this.cancel();
-  }
-  editProduct(p: Post) {
-    this.post = p;
-  }
+  // save() {
+  //   if (this.post.id == null) {
+  //     this.dataService.createPost(this.post)
+  //       .subscribe((data: Post) => this.posts.push(data));
+  //   } else {
+  //     this.dataService.updatePost(this.post)
+  //       .subscribe(data => this.loadPosts());
+  //   }
+  //   this.cancel();
+  // }
+  // editProduct(p: Post) {
+  //   this.post = p;
+  // }
 
-  cancel() {
-    this.post = new Post();
-    this.tableMode = true;
-  }
+  // cancel() {
+  //   this.post = new Post();
+  //   this.tableMode = true;
+  // }
 
-  delete(p: Post) {
-    this.dataService.deletePost(p.id)
-      .subscribe(data => this.loadPosts());
-  }
-  add() {
-    this.cancel();
-    this.tableMode = false;
-  }
+  // delete(p: Post) {
+  //   this.dataService.deletePost(p.id)
+  //     .subscribe(data => this.loadPosts());
+  // }
+  // add() {
+  //   this.cancel();
+  //   this.tableMode = false;
+  // }
 
 
 

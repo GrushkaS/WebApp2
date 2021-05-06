@@ -1,1 +1,25 @@
-<h2>Admin posts here</h2>
+<h2>List of posts</h2>
+<input type="text" placeholder="Search...(Not working)">
+<table class="table table-striped">
+  <thead class="bg-primary">
+  <tr>
+    <td>Id</td>
+    <td>Title</td>
+    <td>Author</td>
+    <td>Date</td>
+    <td></td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let p of posts">
+    <td>{{p?.id}}</td>
+    <td>{{p?.title}}</td>
+    <td>{{p?.author}}</td>
+    <td>{{p?.date}}</td>
+    <td>
+      <a [routerLink]="[p.id]" class="btn btn-sm btn-dark" >Open</a>
+      <button (click)="delete(p.id)" class="btn btn-sm btn-danger">Удалить</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
