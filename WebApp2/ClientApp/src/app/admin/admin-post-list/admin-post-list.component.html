@@ -1,8 +1,8 @@
 <h2>List of posts</h2>
 
 <div class="container-header">
-  <input type="text" placeholder="Search...(Not working)">
-  <button (click)="goAdd()" class="btn btn-sm btn-dark">Add post</button>
+  <input type="text" placeholder="Search..." [(ngModel)]="searchString">
+  <button (click)="goAdd()" class="btn btn-sm btn-success">Add post</button>
 </div>
 
 <table class="table table-striped">
@@ -16,7 +16,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let p of posts">
+  <tr *ngFor="let p of posts | searchPosts: searchString">
     <td>{{p?.id}}</td>
     <td>{{p?.title}}</td>
     <td>{{p?.author}}</td>

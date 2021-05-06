@@ -13,6 +13,7 @@ export class AdminPostListComponent {
 
   post: Post = new Post();
   posts: Post[];
+  searchString: string;
 
   constructor(private dataService: DataService, private router: Router) { }
 

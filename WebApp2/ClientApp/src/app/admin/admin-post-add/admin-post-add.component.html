@@ -1,8 +1,9 @@
 <div>
   <h2>Add new post</h2>
   <admin-app-post-form [(post)]="post"></admin-app-post-form>
+
   <div class="form-group">
     <input type="button" value="Save" (click)="save()" class="btn btn-success" />
-    <a routerLink="/admin/posts-list" class="btn btn-warning">Cancel</a>
+    <a routerLink="/admin/posts-list" class="btn btn-danger">Cancel</a>
   </div>
 </div>

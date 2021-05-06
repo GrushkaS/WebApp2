@@ -20,12 +20,14 @@ const appRoutes: Routes = [
     AppComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [ExitAboutGuard],
+  exports: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,8 +8,9 @@ import {AdminPostListComponent} from './admin-post-list/admin-post-list.componen
 import {AdminPostAddComponent} from './admin-post-add/admin-post-add.component';
 import {AdminPostViewComponent} from './admin-post-view/admin-post-view.component';
 import {AdminPostEditComponent} from './admin-post-edit/admin-post-edit.component';
-import { AdminPostFormComponent} from './admin-post-form/admin-post-form.component';
+import {AdminPostFormComponent} from './admin-post-form/admin-post-form.component';
 import {FormsModule} from '@angular/forms';
+import {AppCommonModule} from '../app.common.module';
 
 
 // const appAdminChildRoutes: Routes = [
@@ -42,7 +43,8 @@ const appAdminRoutes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(appAdminRoutes),
-    FormsModule
+    FormsModule,
+    AppCommonModule
   ],
   exports: [RouterModule],
   bootstrap: [AdminNavMenuComponent]

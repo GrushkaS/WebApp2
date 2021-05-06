@@ -6,11 +6,11 @@ import {PostListComponent} from './post-list/post-list.component';
 import {PostViewComponent} from './post-view/post-view.component';
 import {LogInComponent} from './authorization/log-in/log-in.component';
 import {SignUpComponent} from './authorization/sign-up/sign-up.component';
-import {SearchPostsPipe} from '../pipes/searchPosts.pipe';
 import {CommonModule} from '@angular/common';
 import {ExitAboutGuard} from '../services/exit.about.guard';
 import {FormsModule} from '@angular/forms';
 import {AppUnloginedComponent} from './app.unlogined.component';
+import {AppCommonModule} from '../app.common.module';
 
 const appUnloginedRoutes: Routes = [
   {path: '', component: AppUnloginedComponent, children: [
@@ -30,17 +30,17 @@ const appUnloginedRoutes: Routes = [
     PostListComponent,
     PostViewComponent,
     LogInComponent,
-    SignUpComponent,
-    SearchPostsPipe
+    SignUpComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(appUnloginedRoutes),
-    FormsModule
+    FormsModule,
+    AppCommonModule
   ],
   exports: [RouterModule],
   providers: [ExitAboutGuard],
-  bootstrap: [AppUnloginedComponent, NavMenuComponent]
+  bootstrap: [AppUnloginedComponent]
 })
 
 export class AppUnloginedModule {
