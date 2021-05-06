@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {ExitAboutGuard} from './services/exit.about.guard';
 
+
 const appRoutes: Routes = [
   {path: '', loadChildren: './unlogined/app.unlogined.module#AppUnloginedModule'},
   {path: 'admin', loadChildren: './admin/app.admin.module#AppAdminModule'},

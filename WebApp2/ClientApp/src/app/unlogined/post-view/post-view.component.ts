@@ -12,6 +12,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class PostViewComponent implements  OnInit {
   post: Post = new Post();
   id: number;
+  text: string;
 
   constructor(private dataService: DataService, private router: Router, activeRoute: ActivatedRoute) {
     // tslint:disable-next-line:radix
