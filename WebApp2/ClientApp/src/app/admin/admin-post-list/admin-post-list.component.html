@@ -1,7 +1,7 @@
 <h2>List of posts</h2>
 
 <div class="container-header">
-  <input type="text" placeholder="Search..." [(ngModel)]="searchString">
+  <input type="text" placeholder="Search by title..." [(ngModel)]="searchString">
   <button (click)="goAdd()" class="btn btn-sm btn-success">Add post</button>
 </div>
 
@@ -10,6 +10,7 @@
   <tr>
     <td>Id</td>
     <td>Title</td>
+    <td>Text</td>
     <td>Author</td>
     <td>Date</td>
     <td></td>
@@ -19,11 +20,12 @@
   <tr *ngFor="let p of posts | searchPosts: searchString">
     <td>{{p?.id}}</td>
     <td>{{p?.title}}</td>
+    <td>{{p?.text.substr(0,50) + ' ...'}}</td>
     <td>{{p?.author}}</td>
     <td>{{p?.date}}</td>
     <td>
       <a [routerLink]="[p.id]" class="btn btn-sm btn-dark" >Open</a>
-      <button (click)="delete(p.id)" class="btn btn-sm btn-danger">Удалить</button>
+      <button (click)="delete(p.id)" class="btn btn-sm btn-danger">Delete</button>
     </td>
   </tr>
   </tbody>
