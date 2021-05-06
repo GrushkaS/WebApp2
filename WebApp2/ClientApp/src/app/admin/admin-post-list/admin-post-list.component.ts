@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 import { Post} from '../../models/post';
 import {DataService} from '../../services/data.service';
 import {Router} from '@angular/router';
+import {ViewportScroller} from "@angular/common";
 
 @Component({
   selector: 'admin-app-post-list',
@@ -15,7 +16,16 @@ export class AdminPostListComponent {
   posts: Post[];
   searchString: string;
 
-  constructor(private dataService: DataService, private router: Router) { }
+  pageYOffset = 0;
+  @HostListener('window:scroll', ['event']) onScroll(event) {
+    this.pageYOffset = window.pageYOffset;
+  }
+
+  scrollToTop() {
+    this.scroll.scrollToPosition([0, 0]);
+  }
+
+  constructor(private dataService: DataService, private router: Router, private scroll: ViewportScroller) { }
 
   ngOnInit() {
     this.loadPosts();  // загрузка данных при старте компонента

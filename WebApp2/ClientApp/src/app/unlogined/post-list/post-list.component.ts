@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Post} from '../../models/post';
 import {DataService} from '../../services/data.service';
 import {Router} from '@angular/router';
+import {ViewportScroller} from "@angular/common";
 
 @Component({
   selector: 'app-post-list',
@@ -17,7 +18,17 @@ export class PostListComponent implements OnInit {
   tableMode: boolean = true;
   searchString = '';
 
-  constructor(private dataService: DataService, private router: Router) { }
+  pageYOffset = 0;
+  @HostListener('window:scroll', ['event']) onScroll(event) {
+    this.pageYOffset = window.pageYOffset;
+  }
+
+  scrollToTop() {
+    this.scroll.scrollToPosition([0, 0]);
+  }
+
+
+  constructor(private dataService: DataService, private router: Router, private scroll: ViewportScroller) { }
 
   ngOnInit() {
     this.loadPosts();  // загрузка данных при старте компонента

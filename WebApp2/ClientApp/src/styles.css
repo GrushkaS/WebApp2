@@ -47,3 +47,11 @@ svg#clouds {
   --warning-color: #FF6600;
 }
 
+.scroll-to-top{
+  position: fixed;
+  bottom: 30px;
+  right: 40px;
+  cursor: pointer;
+  scroll-behavior: smooth;
+}
+

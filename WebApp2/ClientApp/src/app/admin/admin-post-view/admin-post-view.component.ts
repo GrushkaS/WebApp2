@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, HostListener, Input, OnInit} from '@angular/core';
 import {Post} from '../../models/post';
 import {DataService} from '../../services/data.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {ViewportScroller} from "@angular/common";
 
 @Component({
   selector: 'app-admin-post-view',
@@ -13,7 +14,17 @@ export class AdminPostViewComponent implements  OnInit {
   post: Post = new Post();
   id: number;
 
-  constructor(private dataService: DataService, private router: Router, activeRoute: ActivatedRoute) {
+  pageYOffset = 0;
+  @HostListener('window:scroll', ['event']) onScroll(event) {
+    this.pageYOffset = window.pageYOffset;
+  }
+
+  scrollToTop() {
+    this.scroll.scrollToPosition([0, 0]);
+  }
+
+
+  constructor(private dataService: DataService, private router: Router, activeRoute: ActivatedRoute, private scroll: ViewportScroller) {
     // tslint:disable-next-line:radix
     this.id = Number.parseInt(activeRoute.snapshot.params['id']);
   }

@@ -3,7 +3,7 @@
 <table class="table table-striped">
   <thead class="bg-primary">
   <tr>
-    <td>Id</td>
+    <td></td>
     <td>Title</td>
     <td>Text</td>
     <td>Author</td>
@@ -13,7 +13,7 @@
   </thead>
   <tbody>
   <tr *ngFor="let p of posts | searchPosts: searchString">
-      <td>{{p?.id}}</td>
+      <td>*</td>
       <td>{{p?.title}}</td>
       <td>{{p?.text.substr(0,50) + ' ...'}}</td>
       <td>{{p?.author}}</td>
@@ -24,3 +24,5 @@
   </tr>
   </tbody>
 </table>
+
+<button (click)="scrollToTop()" *ngIf="pageYOffset > 0" class="btn btn-outline-primary scroll-to-top">Up</button>
