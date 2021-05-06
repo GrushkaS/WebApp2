@@ -1,1 +1,8 @@
-<h2>Edit page</h2>
+<div>
+  <h2>Edit post</h2>
+  <admin-app-post-form [(post)]="post"></admin-app-post-form>
+  <div class="form-group">
+    <input type="button" value="Save" (click)="save()" class="btn btn-success" />
+    <a routerLink="/admin/posts-list" class="btn btn-danger">Cancel</a>
+  </div>
+</div>
