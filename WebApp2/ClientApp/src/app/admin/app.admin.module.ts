@@ -5,6 +5,9 @@ import {AppAdminComponent} from './app.admin.component';
 import {AdminNavMenuComponent} from './admin-nav-menu/admin-nav-menu.component';
 import {AdminHomeComponent} from './admin-home/admin-home.component';
 import {AdminPostListComponent} from './admin-post-list/admin-post-list.component';
+import {AdminPostAddComponent} from './admin-post-add/admin-post-add.component';
+import {AdminPostViewComponent} from './admin-post-view/admin-post-view.component';
+import {AdminPostEditComponent} from './admin-post-edit/admin-post-edit.component';
 
 
 // const appAdminChildRoutes: Routes = [
@@ -15,7 +18,10 @@ import {AdminPostListComponent} from './admin-post-list/admin-post-list.componen
 const appAdminRoutes: Routes = [
   { path: '', component: AppAdminComponent, children: [
       { path: '', component: AdminHomeComponent},
-      { path: 'posts-list', component: AdminPostListComponent}
+      { path: 'posts-list', component: AdminPostListComponent},
+      { path: 'posts-list/add', component: AdminPostAddComponent},
+      { path: 'posts-list/:id', component: AdminPostViewComponent, pathMatch: 'full'},
+      { path: 'posts-list/:id/edit', component: AdminPostEditComponent, pathMatch: 'full'},
 
     ]}
 ];
@@ -25,7 +31,10 @@ const appAdminRoutes: Routes = [
     AppAdminComponent,
     AdminNavMenuComponent,
     AdminHomeComponent,
-    AdminPostListComponent
+    AdminPostListComponent,
+    AdminPostAddComponent,
+    AdminPostViewComponent,
+    AdminPostEditComponent
   ],
   imports: [
     CommonModule,

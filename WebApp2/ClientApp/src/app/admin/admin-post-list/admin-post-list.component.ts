@@ -33,4 +33,8 @@ export class AdminPostListComponent {
   delete(id: number) {
     this.dataService.deletePost(id).subscribe(data => this.load());
   }
+
+  goAdd() {
+    this.router.navigate(['/admin/posts-list/add']);
+  }
 }

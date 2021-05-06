@@ -1,7 +1,12 @@
 <h2>List of posts</h2>
-<input type="text" placeholder="Search...(Not working)">
+
+<div class="container-header">
+  <input type="text" placeholder="Search...(Not working)">
+  <button (click)="goAdd()" class="btn btn-sm btn-dark">Add post</button>
+</div>
+
 <table class="table table-striped">
-  <thead class="bg-primary">
+  <thead class="bg-danger">
   <tr>
     <td>Id</td>
     <td>Title</td>

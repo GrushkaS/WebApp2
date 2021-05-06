@@ -1,3 +1,13 @@
 button{
-  margin-left: 1rem;
+  margin-left: 0.5rem;
 }
+
+thead {
+  font-size: 1.2rem;
+  color: white;
+}
+
+.container-header{
+  display: flex;
+}
+
