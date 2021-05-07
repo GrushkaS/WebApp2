@@ -1,20 +1,23 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import {LoginService} from '../../services/login.service';
 
 @Component({
   selector: 'app-admin-nav-menu',
   templateUrl: './admin-nav-menu.component.html',
-  styleUrls: ['./admin-nav-menu.component.css']
+  styleUrls: ['./admin-nav-menu.component.css'],
+  providers: [LoginService]
 })
 export class AdminNavMenuComponent {
   isExpanded = false;
 
 
-  constructor(private router: Router, activeRoute: ActivatedRoute) {
+  constructor(private router: Router, activeRoute: ActivatedRoute, private loginService: LoginService) {
     console.log('Active url: ' + activeRoute.toString());
   }
 
-  goHome() {
+  logOut() {
+    this.loginService.logOut();
     this.router.navigate(['']);
   }
 
