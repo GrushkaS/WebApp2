@@ -6,11 +6,13 @@ import {RouterModule, Routes} from '@angular/router';
 import { AppComponent } from './app.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {ExitAboutGuard} from './services/exit.about.guard';
+import {AuthGuardAdmin} from './services/auth.guard.admin';
+import {LoginService} from "./services/login.service";
 
 
 const appRoutes: Routes = [
   {path: '', loadChildren: './unlogined/app.unlogined.module#AppUnloginedModule'},
-  {path: 'admin', loadChildren: './admin/app.admin.module#AppAdminModule'},
+  {path: 'admin', loadChildren: './admin/app.admin.module#AppAdminModule', canActivate: [AuthGuardAdmin]},
   { path: '**', component: NotFoundComponent}
 ];
 
@@ -26,7 +28,7 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ExitAboutGuard],
+  providers: [ExitAboutGuard, AuthGuardAdmin, LoginService],
   exports: [
   ],
   bootstrap: [AppComponent]

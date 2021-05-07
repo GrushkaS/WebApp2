@@ -30,15 +30,19 @@ namespace WebApp2.Controllers
         [HttpPost]
         public User IsUser(User user)
         {
-            User userm = db.Users.FirstOrDefault(x => x.Name == user.Name);
-            if (userm != null)
+            List<User> users = db.Users.ToList();
+            User resUser = null;
+            foreach(User _user in users)
             {
-                return userm;
+                if(_user.Name == user.Name && _user.Password == user.Password)
+                {
+                    resUser = _user;
+                    break;
+                }
+                
             }
-            else
-            {
-                return new User();
-            }           
+
+            return resUser;             
         }
 
         //[HttpGet]

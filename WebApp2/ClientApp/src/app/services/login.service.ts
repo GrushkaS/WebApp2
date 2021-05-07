@@ -29,8 +29,11 @@ export class LoginService {
   }
 
   isLogged() {
-
-
+    if (localStorage.getItem('role-token') === 'admin') {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }
