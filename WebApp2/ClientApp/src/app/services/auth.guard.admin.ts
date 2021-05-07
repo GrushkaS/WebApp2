@@ -8,7 +8,7 @@ export class AuthGuardAdmin implements CanActivate {
   constructor(private auth: LoginService, private  router: Router ) {
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
-    if (this.auth.isLogged()) {
+    if (this.auth.isAdmin()) {
       return true;
     } else { return false; }
   }

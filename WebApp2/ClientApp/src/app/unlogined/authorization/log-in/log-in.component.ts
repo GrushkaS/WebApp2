@@ -11,7 +11,6 @@ import {User} from '../../../models/user';
 })
 export class LogInComponent implements OnInit {
   @Input() user: User = new User();
-  admin = 'admin';
 
   constructor(private router: Router, private loginService: LoginService) {
   }

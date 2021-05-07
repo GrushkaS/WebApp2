@@ -16,9 +16,7 @@ namespace WebApp2.Controllers
         public UserController(ApplicationContext context)
         {
             db = context;
-            db.Users.Add(new User { Name = "User", Email = "user@email.com", Password = "4044", Role = "user" });
-            db.SaveChanges();
-
+            
             if (!db.Users.Any())
             {
                 db.Users.Add(new User {Name = "GrushkaS", Email = "vad@email.com", Password = "4044", Role = "admin" });
@@ -31,7 +29,7 @@ namespace WebApp2.Controllers
         public User IsUser(User user)
         {
             List<User> users = db.Users.ToList();
-            User resUser = null;
+            User resUser = new User {Name = "ErrorUSer" };
             foreach(User _user in users)
             {
                 if(_user.Name == user.Name && _user.Password == user.Password)

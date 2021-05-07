@@ -20,6 +20,9 @@
   <tr *ngFor="let p of posts | searchPosts: searchString">
     <td>{{p?.id}}</td>
     <td>{{p?.title}}</td>
+<!--    <td>-->
+<!--      <quill-view-html [content]="p.text.substr(0,50) + ' ...'"></quill-view-html>-->
+<!--    </td>-->
     <td>{{p?.text.substr(0,50) + ' ...'}}</td>
     <td>{{p?.author}}</td>
     <td>{{p?.date}}</td>

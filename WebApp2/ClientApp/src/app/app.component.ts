@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {User} from './models/user';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   constructor() {
+    localStorage.setItem('cr-user', 'unknown');
     localStorage.setItem('role-token', 'user');
   }
+  user: User = new User();
   title = 'app';
 }
