@@ -15,6 +15,8 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
+
+
       <div
         class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
         [ngClass]="{ show: isExpanded }"
@@ -31,7 +33,9 @@
             <a class="nav-link text-light" [routerLink]="['posts-list']">Posts</a>
           </li>
 
-
+          <li  class="nav-item pointer-none" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark font-weight-bold">{{currentUser}}</a>
+          </li>
 
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-light" (click)="logOut()">LogOut</a>

@@ -10,6 +10,9 @@ export class AuthGuardAdmin implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
     if (this.auth.isAdmin()) {
       return true;
-    } else { return false; }
+    } else {
+      this.router.navigate(['']);
+      return false;
+    }
   }
 }

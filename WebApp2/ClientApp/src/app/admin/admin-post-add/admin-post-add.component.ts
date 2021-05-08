@@ -20,6 +20,7 @@ export class AdminPostAddComponent {
     this.date = new Date();
 
     this.post.date = this.datepipe.transform(this.date, 'dd.MM.yyyy');
+    this.post.author = localStorage.getItem('cr-user');
     this.dataService.createPost(this.post).subscribe(data => this.router.navigateByUrl('/admin/posts-list'));
 
   }

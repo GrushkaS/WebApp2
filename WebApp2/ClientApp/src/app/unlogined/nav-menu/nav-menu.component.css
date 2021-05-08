@@ -21,3 +21,8 @@ html {
 nav.bg-dark{
   background: #e01a76;
 }
+
+.container-login-name{
+  display: flex;
+}
+

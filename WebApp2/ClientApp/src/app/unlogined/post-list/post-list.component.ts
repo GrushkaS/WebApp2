@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {Post} from '../../models/post';
 import {DataService} from '../../services/data.service';
 import {Router} from '@angular/router';
-import {ViewportScroller} from "@angular/common";
+import {ViewportScroller} from '@angular/common';
 
 @Component({
   selector: 'app-post-list',
@@ -15,7 +15,6 @@ export class PostListComponent implements OnInit {
 
   post: Post = new Post();
   posts: Post[];
-  tableMode: boolean = true;
   searchString = '';
 
   pageYOffset = 0;
@@ -37,7 +36,6 @@ export class PostListComponent implements OnInit {
   loadPosts() {
     this.dataService.getPosts()
       .subscribe((data: Post[]) => {this.posts = data; console.log(data); console.log(this.posts); });
-    console.log(this.posts);
   }
 
   // save() {

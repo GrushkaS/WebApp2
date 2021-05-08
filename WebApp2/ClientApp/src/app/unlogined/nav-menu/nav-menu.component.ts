@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, DoCheck, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {LoginService} from '../../services/login.service';
 
@@ -8,18 +8,25 @@ import {LoginService} from '../../services/login.service';
   styleUrls: ['./nav-menu.component.css'],
   providers: [LoginService]
 })
-export class NavMenuComponent {
+export class NavMenuComponent implements OnInit, DoCheck {
   isExpanded = false;
   isAdminLayout = false;
 
   currentUser: string;
-  unknownUser = 'unknown';
 
 
 
   constructor(private router: Router, activeRoute: ActivatedRoute, private loginService: LoginService) {
     console.log('Active url: ' + activeRoute.toString());
+  }
+
+  ngOnInit() {
+
+  }
+
+  ngDoCheck() {
     this.currentUser = localStorage.getItem('cr-user');
+    console.log(this.currentUser);
   }
 
   logOut() {

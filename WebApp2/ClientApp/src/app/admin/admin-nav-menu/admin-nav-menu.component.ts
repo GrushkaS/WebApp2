@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, DoCheck} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {LoginService} from '../../services/login.service';
 
@@ -8,12 +8,17 @@ import {LoginService} from '../../services/login.service';
   styleUrls: ['./admin-nav-menu.component.css'],
   providers: [LoginService]
 })
-export class AdminNavMenuComponent {
+export class AdminNavMenuComponent implements DoCheck {
   isExpanded = false;
+  currentUser = '';
 
 
   constructor(private router: Router, activeRoute: ActivatedRoute, private loginService: LoginService) {
     console.log('Active url: ' + activeRoute.toString());
+  }
+
+  ngDoCheck() {
+    this.currentUser = localStorage.getItem('cr-user');
   }
 
   logOut() {

@@ -55,3 +55,7 @@ svg#clouds {
   scroll-behavior: smooth;
 }
 
+.pointer-none{
+  pointer-events: none;
+}
+

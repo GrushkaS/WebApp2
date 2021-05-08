@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {ExitAboutGuard} from './services/exit.about.guard';
 import {AuthGuardAdmin} from './services/auth.guard.admin';
-import {LoginService} from "./services/login.service";
+import {LoginService} from './services/login.service';
 
 
 const appRoutes: Routes = [
