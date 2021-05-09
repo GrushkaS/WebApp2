@@ -43,11 +43,17 @@ namespace WebApp2.Controllers
             return resUser;             
         }
 
-        //[HttpGet]
-        //public IEnumerable<User> Get()
-        //{
-        //    return db.Users.ToList();
-        //}
+        [HttpPost("create")]
+        public IActionResult Post(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Users.Add(user);
+                db.SaveChanges();
+                return Ok(user);
+            }
+            return BadRequest(ModelState);
+        }
 
     }
 }

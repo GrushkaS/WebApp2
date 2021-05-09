@@ -3,13 +3,13 @@
   <h2>SignUp</h2>
 
   <label><b>Username</b></label>
-  <input type="text" placeholder="Enter username" name="username" required>
+  <input [(ngModel)]="user.name" type="text" placeholder="Enter username" name="username" required>
 
   <label><b>Email</b></label>
-  <input type="email" placeholder="user@gmail.com" name="useremail" required>
+  <input [(ngModel)]="user.email" type="email" placeholder="user@gmail.com" name="useremail" required>
 
   <label><b>Password</b></label>
-  <input type="password" placeholder="Enter password" name="password" required>
+  <input [(ngModel)]="user.password" type="password" placeholder="Enter password" name="password" required>
 
   <label><b>Repeat Password</b></label>
   <input type="password" placeholder="Repeat password" name="password" required>
@@ -17,5 +17,5 @@
 </div>
 
 <div class="container-auth-login">
-  <button (click)="goHome()" class="btn btn-sm btn-dark">SignUp</button>
+  <button (click)="signUp()" class="btn btn-sm btn-dark">SignUp</button>
 </div>

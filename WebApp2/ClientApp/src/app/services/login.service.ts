@@ -14,6 +14,10 @@ export class LoginService {
     return this.http.post(this.url, user);
   }
 
+  signUp(user: User) {
+    return this.http.post(this.url + '/create', user);
+  }
+
   logIn(user: User) {
     if (user != null) {
 
