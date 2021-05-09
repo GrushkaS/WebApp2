@@ -14,17 +14,33 @@ namespace WebApp2.Controllers
         ApplicationContext db;
         public CommentController(ApplicationContext context)
         {
-            db = context;                
+            db = context;
+            if (!db.Comments.Any())
+            {
+                db.Comments.Add(new Comment { Author = "admin", PostNumber = 1, UserNumber = 1, Date = "05.05.2020 18:38", Text = "Hello first comment" });
+                db.SaveChanges();
+            }
         }
 
-        [HttpGet]
-        public IEnumerable<Comment> Get()
+        [HttpGet("p/{id}")]
+        public IEnumerable<Comment> Get(int id)
         {
-            return db.Comments.ToList();
+            List<Comment> comments = db.Comments.ToList();
+            List<Comment> rescomments = new List<Comment>();        
+            foreach (Comment comment in comments)
+            {
+                if (comment.PostNumber == id)
+                {
+                    rescomments.Add(comment);
+                }
+
+            }
+
+            return rescomments;
         }
 
         [HttpGet("{id}")]
-        public Comment Get(int id)
+        public Comment GetComment(int id)
         {
             return db.Comments.FirstOrDefault(x => x.Id == id);
         }

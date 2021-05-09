@@ -1,6 +1,11 @@
-<div>
+<div *ngIf="isEmptyComments">
   <hr>
   <div>
     <h2>Hello comments!</h2>
+    <div *ngFor="let c of comments">
+      <strong>{{c.author}}</strong>
+      <small>{{c.date}}</small>
+      <p>{{c.text}}</p>
+    </div>
   </div>
 </div>
