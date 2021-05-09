@@ -30,8 +30,10 @@ export class NavMenuComponent implements OnInit, DoCheck {
   }
 
   logOut() {
-    this.loginService.logOut();
-    this.router.navigate(['']);
+    if (confirm('Do you really want to log out?')) {
+      this.loginService.logOut();
+      this.router.navigate(['']);
+    }
   }
 
   goHome() {

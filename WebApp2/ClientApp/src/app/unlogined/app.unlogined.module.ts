@@ -11,6 +11,8 @@ import {ExitAboutGuard} from '../services/exit.about.guard';
 import {FormsModule} from '@angular/forms';
 import {AppUnloginedComponent} from './app.unlogined.component';
 import {AppCommonModule} from '../app.common.module';
+import {CommentsComponent} from './comments/comments.component';
+
 
 const appUnloginedRoutes: Routes = [
   {path: '', component: AppUnloginedComponent, children: [
@@ -30,7 +32,8 @@ const appUnloginedRoutes: Routes = [
     PostListComponent,
     PostViewComponent,
     LogInComponent,
-    SignUpComponent
+    SignUpComponent,
+    CommentsComponent
   ],
   imports: [
     CommonModule,

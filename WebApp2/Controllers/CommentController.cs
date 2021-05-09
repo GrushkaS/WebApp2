@@ -14,14 +14,7 @@ namespace WebApp2.Controllers
         ApplicationContext db;
         public CommentController(ApplicationContext context)
         {
-            db = context;
-
-            if (!db.Comments.Any())
-            {
-                db.Comments.Add(new Comment { Author = "Admin", Date = "6 may 2021 18:40", Text = "Hello world!"});
-                db.SaveChanges();
-            }
-       
+            db = context;                
         }
 
         [HttpGet]
