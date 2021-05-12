@@ -9,6 +9,7 @@ export class AppComponent {
   constructor() {
     localStorage.setItem('cr-user', 'unknown');
     localStorage.setItem('role-token', 'user');
+    localStorage.setItem('cr-user-id', '0');
   }
   user: User = new User();
   title = 'app';

@@ -26,6 +26,7 @@ export class LoginService {
         return confirm('Incorrect login!');
       } else {
         localStorage.setItem('cr-user', user.name);
+        localStorage.setItem('cr-user-id', user.id.toString());
         if (user.role === 'admin') {
 
           this.router.navigate(['/admin']);
@@ -45,6 +46,7 @@ export class LoginService {
   logOut() {
     localStorage.setItem('role-token', 'user');
     localStorage.setItem('cr-user', 'unknown');
+    localStorage.setItem('cr-user-id', '0');
   }
 
   isAdmin() {

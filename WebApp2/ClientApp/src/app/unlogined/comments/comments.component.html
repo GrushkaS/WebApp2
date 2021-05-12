@@ -1,11 +1,36 @@
 <div *ngIf="isEmptyComments">
   <hr>
   <div>
-    <h2>Hello comments!</h2>
+    <h4>Comments({{comments.length}}):</h4>
+
     <div *ngFor="let c of comments">
-      <strong>{{c.author}}</strong>
-      <small>{{c.date}}</small>
-      <p>{{c.text}}</p>
+
+      <div class="info">
+        <strong>{{c.author}}</strong>
+        <small>{{c.date}}</small>
+      </div>
+
+      <div>
+        <p>{{c.text}}</p>
+      </div>
+
+      <div *ngIf="c.userNumber === currentUserId">
+        <a class="link text-warning">Edit</a>
+        <a class="link text-danger">Delete</a>
+      </div>
+
+      <hr class="hr-small">
+
     </div>
+  </div>
+</div>
+
+<div *ngIf="!(currentUser === 'unknown')">
+  <h5 *ngIf="isEmptyComments">Join the discussion:</h5>
+  <h5 *ngIf="!(isEmptyComments)">Start the discussion:</h5>
+  <div class="info">
+    <strong>{{currentUser}}</strong>
+    <input type="text" [(ngModel)]="comment.text" placeholder="Enter your comment" class="form-control" />
+    <input type="button" (click)="save()" value="Save" class="btn btn-success" />
   </div>
 </div>

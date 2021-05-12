@@ -1,0 +1,39 @@
+strong{
+  margin-right: 1rem;
+  color: var(--primary-color);
+}
+small{
+  color: var(--danger-color);
+}
+
+hr{
+  border: 2px solid var(--primary-color);
+}
+
+.container-comment{
+  border-radius: 0.2rem;
+  border: var(--primary-color);
+  border-style: outset;
+  border-width: 1px;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+
+.hr-small{
+  border: 1px dashed var(--primary-color);
+  opacity: 0.1;
+  margin: 6px;
+}
+
+.btn{
+  margin-top: 0.2rem;
+}
+
+button{
+  margin-left: 0.2rem;
+}
+
+.link{
+  cursor: pointer;
+  margin-right: 0.2rem;
+}

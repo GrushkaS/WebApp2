@@ -11,7 +11,7 @@ namespace WebApp2.Model
         public string Author { get; set; }
         public string Date { get; set; }
         public string Text { get; set; }
-        public int PostNumber { get; set; }
-        public int UserNumber { get; set; }
+        public string PostNumber { get; set; }
+        public string UserNumber { get; set; }
     }
 }

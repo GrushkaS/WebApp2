@@ -14,10 +14,11 @@ namespace WebApp2.Controllers
         ApplicationContext db;
         public CommentController(ApplicationContext context)
         {
-            db = context;
+            db = context;     
+            
             if (!db.Comments.Any())
             {
-                db.Comments.Add(new Comment { Author = "admin", PostNumber = 1, UserNumber = 1, Date = "05.05.2020 18:38", Text = "Hello first comment" });
+                db.Comments.Add(new Comment { Author = "admin", PostNumber = "1", UserNumber = "1", Date = "05.05.2020 18:38", Text = "Hello first comment" });
                 db.SaveChanges();
             }
         }
@@ -26,16 +27,15 @@ namespace WebApp2.Controllers
         public IEnumerable<Comment> Get(int id)
         {
             List<Comment> comments = db.Comments.ToList();
-            List<Comment> rescomments = new List<Comment>();        
+            List<Comment> rescomments = new List<Comment>();
             foreach (Comment comment in comments)
             {
-                if (comment.PostNumber == id)
+                if (int.Parse(comment.PostNumber) == id)
                 {
                     rescomments.Add(comment);
                 }
 
-            }
-
+            }           
             return rescomments;
         }
 
