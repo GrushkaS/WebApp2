@@ -11,12 +11,25 @@
       </div>
 
       <div>
-        <p>{{c.text}}</p>
+        <p *ngIf="!isEdit">{{c.text}}</p>
+        <p *ngIf="c.userNumber !== currentUserId && isEdit ">{{c.text}}</p>
+        <p *ngIf="c.userNumber === currentUserId && isEdit && editId !== c.id">{{c.text}}</p>
+        <input [(ngModel)]="editText" *ngIf="c.userNumber === currentUserId && isEdit && editId === c.id" type="text"  placeholder="Enter your comment" class="form-control" />
       </div>
 
-      <div *ngIf="c.userNumber === currentUserId">
-        <a class="link text-warning">Edit</a>
-        <a class="link text-danger">Delete</a>
+      <div *ngIf="c.userNumber === currentUserId && !isEdit">
+        <a (click)="edit(c.id)" class="link text-warning">Edit</a>
+        <a (click)="delete(c.id)" class="link text-danger">Delete</a>
+      </div>
+
+      <div *ngIf="c.userNumber === currentUserId && isEdit && editId !== c.id">
+        <a (click)="edit(c.id)" class="link text-warning">Edit</a>
+        <a (click)="delete(c.id)" class="link text-danger">Delete</a>
+      </div>
+
+      <div *ngIf="c.userNumber === currentUserId && isEdit && editId === c.id">
+        <a (click)="saveCom(c.id)" cl class="link text-success">Save</a>
+        <a (click)="cancel()" class="link text-danger">Cancel</a>
       </div>
 
       <hr class="hr-small">
@@ -30,7 +43,7 @@
   <h5 *ngIf="!(isEmptyComments)">Start the discussion:</h5>
   <div class="info">
     <strong>{{currentUser}}</strong>
-    <input type="text" [(ngModel)]="comment.text" placeholder="Enter your comment" class="form-control" />
+    <input type="text" [(ngModel)]="editText" placeholder="Enter your comment" class="form-control" />
     <input type="button" (click)="save()" value="Save" class="btn btn-success" />
   </div>
 </div>

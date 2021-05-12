@@ -19,6 +19,10 @@ export class CommentsComponent implements OnInit, DoCheck {
   currentUser: string;
   currentUserId: string;
 
+  isEdit = false;
+  editId: number;
+  editText: string;
+
 
   constructor(private activeRoute: ActivatedRoute, private commentService: CommentService, private datepipe: DatePipe) {
     // tslint:disable-next-line:radix
@@ -44,14 +48,49 @@ export class CommentsComponent implements OnInit, DoCheck {
   }
 
   save() {
+    this.comment = new Comment();
     this.date = new Date();
     this.comment.author = this.currentUser;
     this.comment.postNumber = this.idPost;
     this.comment.userNumber = this.currentUserId;
     this.comment.date = this.datepipe.transform(this.date, 'dd.MM.yyyy hh:mm a');
+    this.comment.text = this.editText;
     console.log('Ready for creating com post number = ' + this.idPost + ' id user ' + this.currentUserId);
     console.log(this.comment);
+
     this.commentService.createComment(this.comment).subscribe(data => this.loadComments());
+  }
+
+  saveCom(id: number) {
+    // this.comment = com;
+    // console.log(this.comment);
+    // this.comment.date = this.datepipe.transform(this.date, 'dd.MM.yyyy hh:mm a');
+    // this.comment.text = this.editText;
+    // this.commentService.updateComment(this.comment).subscribe(data => this.loadComments());
+    this.commentService.getComment(id).subscribe((data: Comment) => {this.comment = data; });
+    this.comment.date = this.datepipe.transform(this.date, 'dd.MM.yyyy hh:mm a');
+    this.comment.text = this.editText;
+    this.commentService.updateComment(this.comment).subscribe(data => this.loadComments());
+    this.cancel();
+  }
+
+  delete(id: number) {
+    this.commentService.deleteComment(id).subscribe(data => this.loadComments());
+  }
+
+  edit(id: number) {
+    this.isEdit = true;
+    this.editId = id;
+    this.commentService.getComment(id).subscribe((data: Comment) => {
+      this.comment = data;
+      this.editText = this.comment.text;
+      console.log(this.comment);
+    });
+  }
+
+  cancel() {
+    this.isEdit = false;
+    this.editId = null;
   }
 
 }
