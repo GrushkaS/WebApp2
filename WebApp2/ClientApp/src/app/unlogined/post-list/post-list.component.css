@@ -6,3 +6,11 @@ thead {
 tbody {
   color: var(--primary-color);
 }
+
+.container-header{
+  display: flex;
+}
+
+button{
+  margin-left: 0.5rem;
+}

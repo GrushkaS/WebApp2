@@ -12,12 +12,15 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppUnloginedComponent} from './app.unlogined.component';
 import {AppCommonModule} from '../app.common.module';
 import {CommentsComponent} from './comments/comments.component';
+import {PostFormComponent} from './post-form/post-form.component';
+import {PostAddComponent} from './post-add/post-add.component';
 
 
 const appUnloginedRoutes: Routes = [
   {path: '', component: AppUnloginedComponent, children: [
       { path: '', component: HomeComponent},
       { path: 'posts-list', component: PostListComponent},
+      { path: 'posts-list/add', component: PostAddComponent},
       { path: 'posts-list/:id', component: PostViewComponent, pathMatch: 'full'},
       { path: 'log-in', component: LogInComponent},
       { path: 'sign-up', component: SignUpComponent, canDeactivate: [ExitAboutGuard]},
@@ -33,7 +36,9 @@ const appUnloginedRoutes: Routes = [
     PostViewComponent,
     LogInComponent,
     SignUpComponent,
-    CommentsComponent
+    CommentsComponent,
+    PostFormComponent,
+    PostAddComponent
   ],
   imports: [
     CommonModule,

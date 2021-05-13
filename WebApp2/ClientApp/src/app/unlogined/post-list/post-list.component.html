@@ -1,5 +1,10 @@
 <h2>List of posts</h2>
-<input type="text" placeholder="Search by title..." [(ngModel)]="searchString">
+
+<div class="container-header">
+  <input type="text" placeholder="Search by title..." [(ngModel)]="searchString">
+  <button *ngIf="currentUser !== 'unknown'" (click)="goAdd()" class="btn btn-sm btn-success">Add post</button>
+</div>
+
 <table class="table table-striped">
   <thead class="bg-primary">
   <tr>
@@ -20,6 +25,7 @@
       <td>{{p?.date}}</td>
       <td>
         <a [routerLink]="[p.id]" class="btn btn-sm btn-dark" >Read</a>
+        <button *ngIf="currentUserId === p.userNumber" (click)="delete(p.id)" class="btn btn-sm btn-danger">Delete</button>
       </td>
   </tr>
   </tbody>

@@ -16,6 +16,9 @@ export class PostListComponent implements OnInit {
   posts: Post[];
   searchString = '';
 
+  currentUserId: string;
+  currentUser: string;
+
   pageYOffset = 0;
   @HostListener('window:scroll', ['event']) onScroll(event) {
     this.pageYOffset = window.pageYOffset;
@@ -29,7 +32,9 @@ export class PostListComponent implements OnInit {
   constructor(private dataService: DataService, private router: Router, private scroll: ViewportScroller) { }
 
   ngOnInit() {
-    this.loadPosts();  // загрузка данных при старте компонента
+    this.loadPosts();
+    this.currentUserId = localStorage.getItem('cr-user-id');
+    this.currentUser = localStorage.getItem('cr-user');
   }
 
   loadPosts() {
@@ -37,34 +42,12 @@ export class PostListComponent implements OnInit {
       .subscribe((data: Post[]) => {this.posts = data; console.log(data); console.log(this.posts); });
   }
 
-  // save() {
-  //   if (this.post.id == null) {
-  //     this.dataService.createPost(this.post)
-  //       .subscribe((data: Post) => this.posts.push(data));
-  //   } else {
-  //     this.dataService.updatePost(this.post)
-  //       .subscribe(data => this.loadPosts());
-  //   }
-  //   this.cancel();
-  // }
-  // editProduct(p: Post) {
-  //   this.post = p;
-  // }
+  delete(id: number) {
+    this.dataService.deletePost(id).subscribe(data => this.loadPosts());
+  }
 
-  // cancel() {
-  //   this.post = new Post();
-  //   this.tableMode = true;
-  // }
-
-  // delete(p: Post) {
-  //   this.dataService.deletePost(p.id)
-  //     .subscribe(data => this.loadPosts());
-  // }
-  // add() {
-  //   this.cancel();
-  //   this.tableMode = false;
-  // }
-
-
+  goAdd() {
+    this.router.navigate(['/posts-list/add']);
+  }
 
 }

@@ -18,9 +18,9 @@ namespace WebApp2.Controllers
           
             if (!db.Posts.Any())
             {
-                db.Posts.Add(new Post { Title = "C#", Text = "Console.WriteLine('Hello world')", Author = "Admin", Date = "04.05.2021" });
-                db.Posts.Add(new Post { Title = "C#", Text = "Using System;", Author = "Admin", Date = "05.05.2021" });
-                db.Posts.Add(new Post { Title = "Angular", Text = "Сам фреймворк состоит из нескольких библиотек (или модулей), каждая из которых содержит в себе определенный функционал, а каждый модуль состоит из совокупности классов и их свойств и методов.Каждый класс имеет свое функциональное предназначение.Не все библиотеки обязательны для использования в приложении(англ.Angular App), часть подключается по мере необходимости,например,FormsModule или HttpClientModule.", Author = "Admin", Date = "05.05.2021" });
+                db.Posts.Add(new Post { Title = "C#", Text = "Console.WriteLine('Hello world')", Author = "Admin", Date = "04.05.2021", UserNumber = "0" });
+                db.Posts.Add(new Post { Title = "C#", Text = "Using System;", Author = "Admin", Date = "05.05.2021", UserNumber = "0" });
+                db.Posts.Add(new Post { Title = "Angular", Text = "Сам фреймворк состоит из нескольких библиотек (или модулей), каждая из которых содержит в себе определенный функционал, а каждый модуль состоит из совокупности классов и их свойств и методов.Каждый класс имеет свое функциональное предназначение.Не все библиотеки обязательны для использования в приложении(англ.Angular App), часть подключается по мере необходимости,например,FormsModule или HttpClientModule.", Author = "Admin", Date = "05.05.2021", UserNumber = "0" });
                 db.SaveChanges();
             }
         }
