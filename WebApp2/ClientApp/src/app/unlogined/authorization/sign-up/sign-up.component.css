@@ -1,23 +1,12 @@
-.container-auth{
-  width: 450px;
-  display: grid;
-}
-
 button{
   justify-content: right;
 }
 
-input{
-  margin-bottom: 0.5rem;
-}
-
-.container-auth-login{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-
 label{
   color: var(--primary-color);
 }
+
+small{
+  color: var(--danger-color);
+}
+

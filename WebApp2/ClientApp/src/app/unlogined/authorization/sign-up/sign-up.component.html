@@ -1,21 +1,54 @@
-<div class="container-auth">
+<div [formGroup]="form">
 
   <h2>SignUp</h2>
 
-  <label><b>Username</b></label>
-  <input [(ngModel)]="user.name" type="text" placeholder="Enter username" name="username" required>
+  <div [ngClass]="{invalid: form.get('username').touched && form.get('username').invalid}">
+    <label><b>Username</b></label>
+    <div>
+      <input formControlName="username" [(ngModel)]="user.name" type="text" placeholder="Enter username" name="username" required>
+    </div>
+    <div *ngIf="form.get('username').touched && form.get('username').invalid">
+      <small *ngIf="form.get('username').errors.required">Field is empty!</small>
+    </div>
+  </div>
 
-  <label><b>Email</b></label>
-  <input [(ngModel)]="user.email" type="email" placeholder="user@gmail.com" name="useremail" required>
+  <div [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid}">
+    <label><b>Email</b></label>
+    <div>
+      <input formControlName="email" [(ngModel)]="user.email" type="email" placeholder="user@gmail.com" name="useremail" required>
+    </div>
+    <div *ngIf="form.get('email').touched && form.get('email').invalid">
+      <small *ngIf="form.get('email').errors.required">Field is empty!</small>
+      <small *ngIf="form.get('email').errors.email">Incorrect email!</small>
+    </div>
+  </div>
 
-  <label><b>Password</b></label>
-  <input [(ngModel)]="user.password" type="password" placeholder="Enter password" name="password" required>
 
-  <label><b>Repeat Password</b></label>
-  <input type="password" placeholder="Repeat password" name="password" required>
+  <div [ngClass]="{invalid: form.get('password').touched && form.get('password').invalid}">
+    <label><b>Password</b></label>
+    <div>
+      <input formControlName="password" [(ngModel)]="user.password" type="password" placeholder="Enter password" name="password" required>
+    </div>
+    <div *ngIf="form.get('password').touched && form.get('password').invalid" >
+      <small *ngIf="form.get('password').errors.required">Field is empty!</small>
+      <small *ngIf="form.get('password').errors.minlength">Short password!</small>
+    </div>
+  </div>
+
+  <div [ngClass]="{invalid: form.get('confirmPassword').touched && form.get('confirmPassword').invalid}">
+    <label><b>Repeat Password</b></label>
+    <div>
+      <input formControlName="confirmPassword" type="password" placeholder="Repeat password" name="password" required pattern="{{user.password}}">
+    </div>
+    <div *ngIf="form.get('confirmPassword').touched && form.get('confirmPassword').invalid" >
+      <small *ngIf="form.get('confirmPassword').errors.required">Field is empty!</small>
+      <small *ngIf="form.get('confirmPassword').errors.pattern">Password mismatch!</small>
+    </div>
+  </div>
+
 
 </div>
 
-<div class="container-auth-login">
-  <button (click)="signUp()" class="btn btn-sm btn-dark">SignUp</button>
+<div>
+  <button [disabled]="form.invalid" (click)="signUp()" class="btn btn-sm btn-dark">SignUp</button>
 </div>
