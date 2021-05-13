@@ -7,7 +7,7 @@ small{
 }
 
 hr{
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--danger-color);
 }
 
 .container-comment{
@@ -20,7 +20,7 @@ hr{
 }
 
 .hr-small{
-  border: 1px dashed var(--primary-color);
+  border: 1px dashed var(--danger-color);
   opacity: 0.1;
   margin: 6px;
 }

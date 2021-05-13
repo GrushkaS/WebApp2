@@ -11,6 +11,7 @@ import {AdminPostEditComponent} from './admin-post-edit/admin-post-edit.componen
 import {AdminPostFormComponent} from './admin-post-form/admin-post-form.component';
 import {FormsModule} from '@angular/forms';
 import {AppCommonModule} from '../app.common.module';
+import {AdminCommentsComponent} from './admin-comments/admin-comments.component';
 
 
 // const appAdminChildRoutes: Routes = [
@@ -38,7 +39,8 @@ const appAdminRoutes: Routes = [
     AdminPostAddComponent,
     AdminPostViewComponent,
     AdminPostEditComponent,
-    AdminPostFormComponent
+    AdminPostFormComponent,
+    AdminCommentsComponent
   ],
   imports: [
     CommonModule,

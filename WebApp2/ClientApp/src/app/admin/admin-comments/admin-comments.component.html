@@ -1,0 +1,45 @@
+<div *ngIf="isEmptyComments">
+  <hr>
+  <h4>Comments({{comments.length}}):</h4>
+  <div *ngFor="let c of comments">
+
+    <div class="info">
+      <strong>{{c.author}}</strong>
+      <small>{{c.date}}</small>
+    </div>
+
+    <div>
+      <p *ngIf="!isEdit">{{c.text}}</p>
+      <p *ngIf="isEdit && editId !== c.id">{{c.text}}</p>
+      <input [(ngModel)]="editText" *ngIf="isEdit && editId === c.id" type="text"  placeholder="Enter your comment" class="form-control" />
+    </div>
+
+    <div *ngIf="!isEdit">
+      <a (click)="edit(c.id)" class="link text-warning">Edit</a>
+      <a (click)="delete(c.id)"  class="link text-danger">Delete</a>
+    </div>
+    <div *ngIf="isEdit && editId !== c.id">
+      <a (click)="edit(c.id)" class="link text-warning">Edit</a>
+      <a (click)="delete(c.id)"  class="link text-danger">Delete</a>
+    </div>
+
+    <div *ngIf="isEdit && editId === c.id">
+      <a (click)="saveCom(c.id)" class="link text-success">Save</a>
+      <a (click)="cancel()" class="link text-danger">Cancel</a>
+    </div>
+
+    <hr class="hr-small">
+
+  </div>
+
+</div>
+
+<div>
+  <h5>Join the discussion:</h5>
+  <div class="info">
+    <strong>{{currentUser}}</strong>
+    <input type="text" [(ngModel)]="editText" placeholder="Enter your comment" class="form-control" />
+    <input type="button" (click)="save()" value="Save" class="btn btn-success" />
+  </div>
+</div>
+
