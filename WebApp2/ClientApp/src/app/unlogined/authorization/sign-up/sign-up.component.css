@@ -4,9 +4,25 @@ button{
 
 label{
   color: var(--primary-color);
+  margin-bottom: 1px;
 }
 
 small{
   color: var(--danger-color);
 }
+
+.container-auth{
+  max-width: 600px;
+  min-width: 450px;
+  display: inline-table;
+}
+
+.container-small{
+  margin-bottom: 0.3rem;
+}
+
+.input-custom{
+  display: grid;
+}
+
 

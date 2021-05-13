@@ -1,17 +1,37 @@
-<div class="container-auth">
+<div [formGroup]="form" class="container-auth">
 
   <h2>LogIn</h2>
 
-  <label><b>Username or email</b></label>
-  <input type="text" [(ngModel)]="user.name" placeholder="Enter username or email" name="username" required>
+  <div [ngClass]="{invalid: form.get('username').touched && form.get('username').invalid}" class="container-small">
+    <label><b>Username or email</b></label>
 
-  <label><b>Password</b></label>
-  <input type="password" [(ngModel)]="user.password" placeholder="Enter password" name="password" required>
+    <div class="input-custom">
+      <input formControlName="username" type="text" [(ngModel)]="user.name" placeholder="Enter username" name="username" required>
+    </div>
+
+    <div *ngIf="form.get('username').touched && form.get('username').invalid">
+      <small *ngIf="form.get('username').errors.required">Field is empty!</small>
+    </div>
+
+  </div>
+
+  <div>
+    <label><b>Password</b></label>
+
+    <div class="input-custom">
+      <input formControlName="password" type="password" [(ngModel)]="user.password" placeholder="Enter password" name="password" required>
+    </div>
+
+    <div *ngIf="form.get('password').touched && form.get('password').invalid" >
+      <small *ngIf="form.get('password').errors.required">Field is empty!</small>
+      <small *ngIf="form.get('password').errors.minlength">Short password!</small>
+    </div>
+  </div>
 
 </div>
 
 <div class="container-auth-login">
-  <button (click)="logIn()" class="btn btn-sm btn-dark">LogIn</button>
+  <button [disabled]="form.invalid" (click)="logIn()" class="btn btn-sm btn-dark">LogIn</button>
   <div class="container-auth-signup">
     <a routerLink="/sign-up">New user? SignUp!</a>
   </div>

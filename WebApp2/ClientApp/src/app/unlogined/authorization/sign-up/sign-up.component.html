@@ -1,10 +1,10 @@
-<div [formGroup]="form">
+<div [formGroup]="form" class="container-auth">
 
   <h2>SignUp</h2>
 
-  <div [ngClass]="{invalid: form.get('username').touched && form.get('username').invalid}">
+  <div [ngClass]="{invalid: form.get('username').touched && form.get('username').invalid}" class="container-small">
     <label><b>Username</b></label>
-    <div>
+    <div class="input-custom">
       <input formControlName="username" [(ngModel)]="user.name" type="text" placeholder="Enter username" name="username" required>
     </div>
     <div *ngIf="form.get('username').touched && form.get('username').invalid">
@@ -12,9 +12,9 @@
     </div>
   </div>
 
-  <div [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid}">
+  <div [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid}" class="container-small">
     <label><b>Email</b></label>
-    <div>
+    <div class="input-custom">
       <input formControlName="email" [(ngModel)]="user.email" type="email" placeholder="user@gmail.com" name="useremail" required>
     </div>
     <div *ngIf="form.get('email').touched && form.get('email').invalid">
@@ -24,9 +24,9 @@
   </div>
 
 
-  <div [ngClass]="{invalid: form.get('password').touched && form.get('password').invalid}">
+  <div [ngClass]="{invalid: form.get('password').touched && form.get('password').invalid}" class="container-small">
     <label><b>Password</b></label>
-    <div>
+    <div class="input-custom">
       <input formControlName="password" [(ngModel)]="user.password" type="password" placeholder="Enter password" name="password" required>
     </div>
     <div *ngIf="form.get('password').touched && form.get('password').invalid" >
@@ -35,9 +35,9 @@
     </div>
   </div>
 
-  <div [ngClass]="{invalid: form.get('confirmPassword').touched && form.get('confirmPassword').invalid}">
+  <div [ngClass]="{invalid: form.get('confirmPassword').touched && form.get('confirmPassword').invalid}" class="container-small">
     <label><b>Repeat Password</b></label>
-    <div>
+    <div class="input-custom">
       <input formControlName="confirmPassword" type="password" placeholder="Repeat password" name="password" required pattern="{{user.password}}">
     </div>
     <div *ngIf="form.get('confirmPassword').touched && form.get('confirmPassword').invalid" >

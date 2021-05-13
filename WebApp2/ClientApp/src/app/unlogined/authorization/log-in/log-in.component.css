@@ -1,6 +1,7 @@
 .container-auth{
   width: 450px;
   display: grid;
+  margin-bottom: 0.2rem;
 }
 
 button{
@@ -8,7 +9,7 @@ button{
 }
 
 input{
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.2rem;
 }
 
 .container-auth-login{
@@ -22,5 +23,17 @@ display: inline-flex;
 }
 label{
   color: var(--primary-color);
+}
+
+small{
+  color: var(--danger-color);
+}
+
+.container-small{
+  margin-bottom: 0.3rem;
+}
+
+.input-custom{
+  display: grid;
 }
 
