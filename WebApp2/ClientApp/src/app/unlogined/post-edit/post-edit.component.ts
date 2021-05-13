@@ -4,11 +4,11 @@ import { Post} from '../../models/post';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
-  selector: 'admin-app-post-edit',
-  templateUrl: './admin-post-edit.component.html',
+  selector: 'app-post-edit',
+  templateUrl: './post-edit.component.html',
   providers: [DataService]
 })
-export class AdminPostEditComponent implements OnInit{
+export class PostEditComponent implements OnInit {
   id: number;
   post: Post;
   constructor(private dataService: DataService, private router: Router, activeRoute: ActivatedRoute) {
@@ -25,7 +25,7 @@ export class AdminPostEditComponent implements OnInit{
   }
 
   save() {
-    this.dataService.updatePost(this.post).subscribe(data => this.router.navigateByUrl('/admin/posts-list/' + this.id));
+    this.dataService.updatePost(this.post).subscribe(data => this.router.navigateByUrl('/posts-list/' + this.id));
   }
 
 

@@ -14,6 +14,7 @@ import {AppCommonModule} from '../app.common.module';
 import {CommentsComponent} from './comments/comments.component';
 import {PostFormComponent} from './post-form/post-form.component';
 import {PostAddComponent} from './post-add/post-add.component';
+import {PostEditComponent} from './post-edit/post-edit.component';
 
 
 const appUnloginedRoutes: Routes = [
@@ -22,6 +23,7 @@ const appUnloginedRoutes: Routes = [
       { path: 'posts-list', component: PostListComponent},
       { path: 'posts-list/add', component: PostAddComponent},
       { path: 'posts-list/:id', component: PostViewComponent, pathMatch: 'full'},
+      { path: 'posts-list/:id/edit', component: PostEditComponent, pathMatch: 'full'},
       { path: 'log-in', component: LogInComponent},
       { path: 'sign-up', component: SignUpComponent, canDeactivate: [ExitAboutGuard]},
     ]}
@@ -38,7 +40,8 @@ const appUnloginedRoutes: Routes = [
     SignUpComponent,
     CommentsComponent,
     PostFormComponent,
-    PostAddComponent
+    PostAddComponent,
+    PostEditComponent
   ],
   imports: [
     CommonModule,

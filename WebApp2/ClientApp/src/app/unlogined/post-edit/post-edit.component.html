@@ -1,0 +1,8 @@
+<div>
+  <h2>Edit post</h2>
+  <app-post-form [(post)]="post"></app-post-form>
+  <div class="form-group">
+    <input type="button" value="Save" (click)="save()" class="btn btn-success" />
+    <a routerLink="/posts-list" class="btn btn-danger">Cancel</a>
+  </div>
+</div>

@@ -15,7 +15,12 @@
 <div class="post">
   <div class="header">
     <h1>{{post.title}}</h1>
-    <button (click)="goPostsList()" class="btn btn-sm btn-danger">Back</button>
+
+    <div>
+      <button *ngIf="currentUserId === post.userNumber" [routerLink]="['edit']" class="btn btn-sm btn-warning">Edit</button>
+      <button  (click)="goPostsList()" class="btn btn-sm btn-danger">Back</button>
+    </div>
+
   </div>
 
   <div class="info">

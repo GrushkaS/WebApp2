@@ -15,6 +15,8 @@ export class PostViewComponent implements  OnInit {
   id: number;
   text: string;
 
+  currentUserId: string;
+
   pageYOffset = 0;
   @HostListener('window:scroll', ['event']) onScroll(event) {
     this.pageYOffset = window.pageYOffset;
@@ -30,7 +32,8 @@ export class PostViewComponent implements  OnInit {
   }
 
   ngOnInit() {
-    this.loadPost();  // загрузка данных при старте компонента
+    this.loadPost();
+    this.currentUserId = localStorage.getItem('cr-user-id');
   }
 
   loadPost() {
