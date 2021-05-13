@@ -67,8 +67,10 @@ export class CommentsComponent implements OnInit, DoCheck {
     // this.comment.date = this.datepipe.transform(this.date, 'dd.MM.yyyy hh:mm a');
     // this.comment.text = this.editText;
     // this.commentService.updateComment(this.comment).subscribe(data => this.loadComments());
+    this.date = new Date();
     this.commentService.getComment(id).subscribe((data: Comment) => {this.comment = data; });
     this.comment.date = this.datepipe.transform(this.date, 'dd.MM.yyyy hh:mm a');
+    console.log('date check@@@@@@@@@:' + this.comment.date);
     this.comment.text = this.editText;
     this.commentService.updateComment(this.comment).subscribe(data => this.loadComments());
     this.cancel();

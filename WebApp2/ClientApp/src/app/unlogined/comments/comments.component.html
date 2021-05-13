@@ -38,7 +38,7 @@
   </div>
 </div>
 
-<div *ngIf="!(currentUser === 'unknown')">
+<div *ngIf="!(currentUser === 'unknown') && !isEdit">
   <h5 *ngIf="isEmptyComments">Join the discussion:</h5>
   <h5 *ngIf="!(isEmptyComments)">Start the discussion:</h5>
   <div class="info">

@@ -55,7 +55,7 @@ export class AdminCommentsComponent implements OnInit, DoCheck {
   save() {
     this.comment = new Comment();
     this.date = new Date();
-    this.comment.author = this.currentUser;
+    this.comment.author = this.currentUser + ' (admin)';
     this.comment.postNumber = this.idPost;
     this.comment.userNumber = this.currentUserId;
     this.comment.date = this.datepipe.transform(this.date, 'dd.MM.yyyy hh:mm a');
@@ -82,6 +82,7 @@ export class AdminCommentsComponent implements OnInit, DoCheck {
   }
 
   saveCom(id: number) {
+    this.date = new Date();
     this.commentService.getComment(id).subscribe((data: Comment) => {this.comment = data; });
     this.comment.date = this.datepipe.transform(this.date, 'dd.MM.yyyy hh:mm a');
     this.comment.text = this.editText;
