@@ -1,3 +1,12 @@
-<hr>
-<h3>Recommended for you:</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, nostrum.</p>
+<div *ngIf="!isEmpty">
+  <hr>
+  <h3>Recommended for you:</h3>
+
+  <div class="d-inline-flex">
+    <div class="custom-link" *ngFor="let p of Posts">
+      <a [routerLink]="['/posts-list/' + p.id]">{{p.title}}</a>
+    </div>
+  </div>
+
+</div>
+

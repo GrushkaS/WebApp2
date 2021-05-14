@@ -38,8 +38,8 @@ svg#clouds {
 }
 
 :root {
-  --primary-color: #3399ff;
-  --primary-color-25: rgba(51,153,255,0.25);
+  --primary-color: #1b6ec2;
+  --primary-color-25: #3399FF;
   --primary-background: #f1f6ff;
   --dark-color: #333333;
   --light-color: #f4f4f4;

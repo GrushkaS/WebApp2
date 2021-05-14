@@ -1,3 +1,17 @@
 hr{
   border: 1px solid var(--primary-color);
 }
+
+.custom-link{
+  margin-right: 1rem;
+  font-size: 20px;
+  display: grid;
+  /*border-style: solid;*/
+  /*border-color: var(--primary-color-25);*/
+  /*border-radius: 0.5rem;*/
+}
+
+small{
+  font-size: 10px;
+  color: var(--danger-color);
+}
