@@ -3,6 +3,7 @@ import {Post} from '../../models/post';
 import {DataService} from '../../services/data.service';
 import {Router} from '@angular/router';
 import {ViewportScroller} from '@angular/common';
+import {DataAnalysis} from '../../services/data.analysis';
 
 @Component({
   selector: 'app-post-list',
@@ -29,7 +30,10 @@ export class PostListComponent implements OnInit {
   }
 
 
-  constructor(private dataService: DataService, private router: Router, private scroll: ViewportScroller) { }
+  constructor(private dataService: DataService,
+              private dataAnalysis: DataAnalysis,
+              private router: Router,
+              private scroll: ViewportScroller) { }
 
   ngOnInit() {
     this.loadPosts();
@@ -48,6 +52,11 @@ export class PostListComponent implements OnInit {
 
   goAdd() {
     this.router.navigate(['/posts-list/add']);
+  }
+
+  read(id: number) {
+    this.router.navigate(['/posts-list/' + id]);
+    this.dataAnalysis.addCounter(id);
   }
 
 }

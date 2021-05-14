@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {DataService} from '../../services/data.service';
 import {Post} from '../../models/post';
 import {DatePipe} from '@angular/common';
+import {DataAnalysis} from '../../services/data.analysis';
 
 @Component({
   selector: 'app-post-add',
@@ -14,7 +15,7 @@ export class PostAddComponent implements OnInit {
   date: Date;
   currentUserId: string;
 
-  constructor(private dataService: DataService, private router: Router, public datepipe: DatePipe) {
+  constructor(private dataService: DataService, private dataAnalysis: DataAnalysis, private router: Router, public datepipe: DatePipe) {
   }
   ngOnInit() {
     this.currentUserId = localStorage.getItem('cr-user-id');
@@ -27,7 +28,7 @@ export class PostAddComponent implements OnInit {
     this.post.author = localStorage.getItem('cr-user');
     this.post.userNumber = this.currentUserId;
     this.dataService.createPost(this.post).subscribe(data => this.router.navigateByUrl('/posts-list'));
-
+    this.dataAnalysis.updateCounters();
   }
 
 }

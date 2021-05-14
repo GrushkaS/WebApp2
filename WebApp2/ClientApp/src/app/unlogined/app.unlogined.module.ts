@@ -15,6 +15,9 @@ import {CommentsComponent} from './comments/comments.component';
 import {PostFormComponent} from './post-form/post-form.component';
 import {PostAddComponent} from './post-add/post-add.component';
 import {PostEditComponent} from './post-edit/post-edit.component';
+import {RecommendationComponent} from './recommendation/recommendation.component';
+import {DataAnalysis} from '../services/data.analysis';
+import {DataService} from '../services/data.service';
 
 
 const appUnloginedRoutes: Routes = [
@@ -41,7 +44,8 @@ const appUnloginedRoutes: Routes = [
     CommentsComponent,
     PostFormComponent,
     PostAddComponent,
-    PostEditComponent
+    PostEditComponent,
+    RecommendationComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +55,7 @@ const appUnloginedRoutes: Routes = [
     AppCommonModule
   ],
   exports: [RouterModule],
-  providers: [ExitAboutGuard],
+  providers: [ExitAboutGuard, DataAnalysis, DataService],
   bootstrap: [AppUnloginedComponent]
 })
 
