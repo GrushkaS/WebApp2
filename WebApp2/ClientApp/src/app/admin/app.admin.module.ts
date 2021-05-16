@@ -16,6 +16,7 @@ import {AdminThemeMainComponent} from './admin-theme-main/admin-theme-main.compo
 import {ThemeNavBarComponent} from './admin-theme-main/theme-nav-bar/theme-nav-bar.component';
 import {ThemeListViewComponent} from './admin-theme-main/theme-list-view/theme-list-view.component';
 import {ThemeViewComponent} from './admin-theme-main/theme-view/theme-view.component';
+import {CurthemeService} from './admin-theme-main/service/curtheme.service';
 
 
 // const appAdminChildRoutes: Routes = [
@@ -58,7 +59,8 @@ const appAdminRoutes: Routes = [
     AppCommonModule
   ],
   exports: [RouterModule],
-  bootstrap: [AdminNavMenuComponent, ThemeNavBarComponent]
+  bootstrap: [AdminNavMenuComponent, ThemeNavBarComponent],
+  providers: [CurthemeService]
 })
 
 export class AppAdminModule {

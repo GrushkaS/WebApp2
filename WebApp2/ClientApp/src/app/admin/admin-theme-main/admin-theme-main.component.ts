@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Theme} from "../../models/theme";
 
 @Component({
   selector: 'admin-app-theme-main',

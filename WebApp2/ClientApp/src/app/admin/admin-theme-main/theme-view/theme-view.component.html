@@ -1,1 +1,22 @@
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consectetur, doloribus magnam pariatur sit ut.</p>
+<div class="post">
+  <div class="header">
+    <h1>{{theme.title}}</h1>
+    <div>
+      <button class="btn btn-sm btn-warning">Edit</button>
+      <button class="btn btn-sm btn-danger">Delete</button>
+    </div>
+  </div>
+
+  <div class="info">
+    <strong>Forum</strong>
+    <small>{{theme.date}}</small>
+  </div>
+
+  <div>
+    <quill-view-html [content]="theme.text"></quill-view-html>
+  </div>
+
+</div>
+
+<!--<button (click)="scrollToTop()" *ngIf="pageYOffset > 0" class="btn btn-outline-danger scroll-to-top">Up</button>-->
+

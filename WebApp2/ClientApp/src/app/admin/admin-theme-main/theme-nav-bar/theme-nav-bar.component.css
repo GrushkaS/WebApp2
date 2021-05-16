@@ -21,3 +21,8 @@ html {
 nav.bg-dark{
   background: #e01a76;
 }
+
+button{
+  border: none;
+  background: none;
+}

@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ThemeN} from '../../../models/themen';
 import {ThemeService} from '../../../services/theme.service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
+import {CurthemeService} from '../service/curtheme.service';
 
 @Component({
   selector: 'admin-app-theme-nav-bar',
@@ -14,14 +15,12 @@ export class ThemeNavBarComponent implements OnInit {
   themesn: ThemeN[];
   href: string = '';
 
-  constructor(private themeService: ThemeService, private router: Router) {
+  constructor(private themeService: ThemeService, private router: Router, private  curtheme: CurthemeService) {
   }
 
   goTheme(id: number) {
-    this.href = this.router.url;
-    console.log(this.href);
-    this.href = this.href.substr(0, 14);
-    this.router.navigate([this.href + '/' + id]);
+    this.curtheme.setCurTitle(id);
+    this.curtheme.isUpdate = true;
   }
 
   ngOnInit() {
