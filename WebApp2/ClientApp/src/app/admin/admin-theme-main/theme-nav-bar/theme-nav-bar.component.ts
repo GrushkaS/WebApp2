@@ -19,6 +19,8 @@ export class ThemeNavBarComponent implements OnInit {
   }
 
   goTheme(id: number) {
+    this.href = this.router.url.substr(0, 14);
+    this.router.navigate([this.href + '/' + id]);
     this.curtheme.setCurTitle(id);
     this.curtheme.isUpdate = true;
   }
@@ -28,7 +30,9 @@ export class ThemeNavBarComponent implements OnInit {
   }
 
   loadThemesn() {
-    this.themeService.getThemesn().subscribe((data: ThemeN[]) => {this.themesn = data; });
+    this.themeService.getThemesn().subscribe((data: ThemeN[]) => {
+      this.themesn = data;
+    });
   }
 
   addThemen() {

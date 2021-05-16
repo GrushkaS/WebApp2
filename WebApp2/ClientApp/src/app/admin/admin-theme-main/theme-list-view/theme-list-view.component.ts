@@ -12,7 +12,9 @@ import {CurthemeService} from '../service/curtheme.service';
 })
 export class ThemeListViewComponent implements OnInit, DoCheck {
   themes: Theme[];
+  theme: Theme;
   idTitle: number;
+  isSelected: boolean = false;
 
   constructor(private themeService: ThemeService,
               private activeRoute: ActivatedRoute,
@@ -21,13 +23,15 @@ export class ThemeListViewComponent implements OnInit, DoCheck {
   }
 
   ngOnInit() {
-    this.idTitle = Number.parseInt(this.activeRoute.snapshot.params['id'], 10);
+    this.idTitle = 1;
     this.loadThemes(this.idTitle);
   }
 
   loadThemes(id: number) {
     this.themeService.getThemes(id).subscribe((data: Theme[]) => {
       this.themes = data;
+      this.theme = this.themes[0];
+      console.log('Loading list themes: ' + this.themes);
     });
   }
 
@@ -37,11 +41,18 @@ export class ThemeListViewComponent implements OnInit, DoCheck {
       this.loadThemes(this.idTitle);
       this.curtheme.isUpdate = false;
     }
+
+    if (this.isSelected) {
+      this.theme = this.themes[this.curtheme.getCurTheme() - 1];
+      this.isSelected = false;
+    }
+
   }
 
   goTheme(id: number) {
     this.curtheme.setCurTheme(id);
-    this.curtheme.isUpdate = true;
+    this.isSelected = true;
+    console.log('Cur title = ' + this.curtheme.getCurTitle() + 'Cur theme = ' + this.curtheme.getCurTheme());
   }
 
 }

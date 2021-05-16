@@ -15,7 +15,6 @@ import {AdminCommentsComponent} from './admin-comments/admin-comments.component'
 import {AdminThemeMainComponent} from './admin-theme-main/admin-theme-main.component';
 import {ThemeNavBarComponent} from './admin-theme-main/theme-nav-bar/theme-nav-bar.component';
 import {ThemeListViewComponent} from './admin-theme-main/theme-list-view/theme-list-view.component';
-import {ThemeViewComponent} from './admin-theme-main/theme-view/theme-view.component';
 import {CurthemeService} from './admin-theme-main/service/curtheme.service';
 
 
@@ -49,8 +48,7 @@ const appAdminRoutes: Routes = [
     AdminCommentsComponent,
     AdminThemeMainComponent,
     ThemeNavBarComponent,
-    ThemeListViewComponent,
-    ThemeViewComponent
+    ThemeListViewComponent
   ],
   imports: [
     CommonModule,
