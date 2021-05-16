@@ -19,7 +19,7 @@ namespace WebApp2.Controllers
             
             if (!db.Users.Any())
             {
-                db.Users.Add(new User {Name = "GrushkaS", Email = "vad@email.com", Password = "4044", Role = "admin" });
+                db.Users.Add(new User {Name = "Vadim", Email = "admin@email.com", Password = "4044", Role = "admin" });
                 db.SaveChanges();
             }
          

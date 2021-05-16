@@ -12,6 +12,8 @@ import {AdminPostFormComponent} from './admin-post-form/admin-post-form.componen
 import {FormsModule} from '@angular/forms';
 import {AppCommonModule} from '../app.common.module';
 import {AdminCommentsComponent} from './admin-comments/admin-comments.component';
+import {AdminThemeMainComponent} from './admin-theme-main/admin-theme-main.component';
+import {ThemeNavBarComponent} from './admin-theme-main/theme-nav-bar/theme-nav-bar.component';
 
 
 // const appAdminChildRoutes: Routes = [
@@ -26,6 +28,7 @@ const appAdminRoutes: Routes = [
       { path: 'posts-list/add', component: AdminPostAddComponent},
       { path: 'posts-list/:id', component: AdminPostViewComponent, pathMatch: 'full'},
       { path: 'posts-list/:id/edit', component: AdminPostEditComponent, pathMatch: 'full'},
+      { path: 'themes', component: AdminThemeMainComponent},
 
     ]}
 ];
@@ -40,7 +43,9 @@ const appAdminRoutes: Routes = [
     AdminPostViewComponent,
     AdminPostEditComponent,
     AdminPostFormComponent,
-    AdminCommentsComponent
+    AdminCommentsComponent,
+    AdminThemeMainComponent,
+    ThemeNavBarComponent
   ],
   imports: [
     CommonModule,
@@ -49,7 +54,7 @@ const appAdminRoutes: Routes = [
     AppCommonModule
   ],
   exports: [RouterModule],
-  bootstrap: [AdminNavMenuComponent]
+  bootstrap: [AdminNavMenuComponent, ThemeNavBarComponent]
 })
 
 export class AppAdminModule {
