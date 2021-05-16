@@ -10,7 +10,7 @@
 
 
           <li *ngFor="let tn of themesn" class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark">{{tn.title}}</a>
+            <a class="nav-link text-danger" (click)="goTheme(tn.id)">{{tn.title}}</a>
           </li>
 
 <!--          <li class="nav-item" [routerLinkActive]="['link-active']">-->

@@ -14,6 +14,8 @@ import {AppCommonModule} from '../app.common.module';
 import {AdminCommentsComponent} from './admin-comments/admin-comments.component';
 import {AdminThemeMainComponent} from './admin-theme-main/admin-theme-main.component';
 import {ThemeNavBarComponent} from './admin-theme-main/theme-nav-bar/theme-nav-bar.component';
+import {ThemeListViewComponent} from './admin-theme-main/theme-list-view/theme-list-view.component';
+import {ThemeViewComponent} from './admin-theme-main/theme-view/theme-view.component';
 
 
 // const appAdminChildRoutes: Routes = [
@@ -28,7 +30,7 @@ const appAdminRoutes: Routes = [
       { path: 'posts-list/add', component: AdminPostAddComponent},
       { path: 'posts-list/:id', component: AdminPostViewComponent, pathMatch: 'full'},
       { path: 'posts-list/:id/edit', component: AdminPostEditComponent, pathMatch: 'full'},
-      { path: 'themes', component: AdminThemeMainComponent},
+      { path: 'themes/:id', component: AdminThemeMainComponent}
 
     ]}
 ];
@@ -45,7 +47,9 @@ const appAdminRoutes: Routes = [
     AdminPostFormComponent,
     AdminCommentsComponent,
     AdminThemeMainComponent,
-    ThemeNavBarComponent
+    ThemeNavBarComponent,
+    ThemeListViewComponent,
+    ThemeViewComponent
   ],
   imports: [
     CommonModule,
