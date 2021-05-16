@@ -6,13 +6,13 @@
     </div>
   </div>
 
-  <div class="container-view">
+  <div *ngIf="theme !== undefined" class="container-view">
     <div class="post">
       <div class="header">
         <h1>{{theme.title}}</h1>
         <div>
           <button [routerLink]="['edit']" class="btn btn-sm btn-warning">Edit</button>
-          <button  class="btn btn-sm btn-danger">Delete</button>
+          <button (click)="deleteTheme(theme.id)" class="btn btn-sm btn-danger">Delete</button>
           <button class="btn btn-sm btn-success back text-light">+</button>
         </div>
       </div>

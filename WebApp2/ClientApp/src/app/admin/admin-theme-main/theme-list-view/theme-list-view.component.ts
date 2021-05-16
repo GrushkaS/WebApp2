@@ -43,7 +43,13 @@ export class ThemeListViewComponent implements OnInit, DoCheck {
     }
 
     if (this.isSelected) {
-      this.theme = this.themes[this.curtheme.getCurTheme() - 1];
+      this.themes.forEach(element => {
+        if (element.id === this.curtheme.getCurTheme()) {
+          console.log('Element = ' + element.id + element.title);
+          this.theme = element;
+        }
+      });
+      // this.theme = this.themes[this.curtheme.getCurTheme() - 1];
       this.isSelected = false;
     }
 
@@ -53,6 +59,11 @@ export class ThemeListViewComponent implements OnInit, DoCheck {
     this.curtheme.setCurTheme(id);
     this.isSelected = true;
     console.log('Cur title = ' + this.curtheme.getCurTitle() + 'Cur theme = ' + this.curtheme.getCurTheme());
+  }
+
+  deleteTheme(id: number) {
+    this.themeService.deleteTheme(id).subscribe(data => this.loadThemes(this.idTitle));
+    this.curtheme.setCurTheme(1);
   }
 
 }
