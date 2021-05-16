@@ -18,6 +18,10 @@ import {PostEditComponent} from './post-edit/post-edit.component';
 import {RecommendationComponent} from './recommendation/recommendation.component';
 import {DataAnalysis} from '../services/data.analysis';
 import {DataService} from '../services/data.service';
+import {ThemeMainComponent} from './theme-main/theme-main.component';
+import {ThemeNavBarComponent} from './theme-main/theme-nav-bar/theme-nav-bar.component';
+import {ThemeListViewComponent} from './theme-main/theme-list-view/theme-list-view.component';
+import {CurthemeService} from './theme-main/service/currenttheme.service';
 
 
 const appUnloginedRoutes: Routes = [
@@ -29,6 +33,7 @@ const appUnloginedRoutes: Routes = [
       { path: 'posts-list/:id/edit', component: PostEditComponent, pathMatch: 'full'},
       { path: 'log-in', component: LogInComponent},
       { path: 'sign-up', component: SignUpComponent, canDeactivate: [ExitAboutGuard]},
+      { path: 'themes/:id', component: ThemeMainComponent}
     ]}
 ];
 
@@ -45,7 +50,10 @@ const appUnloginedRoutes: Routes = [
     PostFormComponent,
     PostAddComponent,
     PostEditComponent,
-    RecommendationComponent
+    RecommendationComponent,
+    ThemeMainComponent,
+    ThemeNavBarComponent,
+    ThemeListViewComponent
   ],
   imports: [
     CommonModule,
@@ -55,7 +63,7 @@ const appUnloginedRoutes: Routes = [
     AppCommonModule
   ],
   exports: [RouterModule],
-  providers: [ExitAboutGuard, DataAnalysis, DataService],
+  providers: [ExitAboutGuard, DataAnalysis, DataService, CurthemeService],
   bootstrap: [AppUnloginedComponent]
 })
 

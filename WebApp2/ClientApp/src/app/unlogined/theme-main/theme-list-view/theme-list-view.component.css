@@ -1,0 +1,52 @@
+.container-theme{
+  display: flex;
+}
+
+.container-list{
+  min-width: 120px;
+  max-width: 160px;
+
+  margin-right: 2rem;
+
+  border-right-width: 2px;
+  border-right-color: rgba(75,75,75,0.05);
+  border-right-style: solid;
+}
+
+.container-view{
+  min-width: 860px;
+  max-width: 1080px;
+}
+
+
+
+.post{
+
+}
+
+h1{
+  margin-bottom: .5rem;
+  color: var(--dark-color);
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info{
+
+}
+
+strong{
+  margin-right: 1rem;
+}
+small{
+  color: var(--danger-color);
+}
+
+button{
+  margin-left: 0.5rem;
+}
+
