@@ -3,8 +3,8 @@
 }
 
 .container-list{
-  min-width: 120px;
-  max-width: 160px;
+  min-width: 160px;
+  max-width: 220px;
 
   margin-right: 2rem;
 
@@ -18,7 +18,9 @@
   max-width: 1080px;
 }
 
-
+a{
+  text-align: left;
+}
 
 .post{
 

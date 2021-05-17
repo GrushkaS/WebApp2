@@ -1,10 +1,11 @@
 <div class="container-theme">
 
-  <div class="container-list">
-    <div *ngFor="let t of themes">
-      <a (click)="goTheme(t.id)" class="btn btn-sm font-weight-bold text-danger">{{t.title}}</a>
-    </div>
-  </div>
+  <ul class="container-list">
+    <li *ngFor="let t of themes">
+      <a (click)="goTheme(t.id)" class="btn btn-sm text-danger font-weight-bold">{{t.title}}</a>
+    </li>
+    <a (click)="addTheme()" class="btn btn-sm text-success">+</a>
+  </ul>
 
   <div *ngIf="theme !== undefined" class="container-view">
     <div class="post">
@@ -13,7 +14,6 @@
         <div>
           <button (click)="editTheme(theme.id)" class="btn btn-sm btn-warning">Edit</button>
           <button (click)="deleteTheme(theme.id)" class="btn btn-sm btn-danger">Delete</button>
-          <button (click)="addTheme()" class="btn btn-sm btn-success back text-light">+</button>
         </div>
       </div>
 
