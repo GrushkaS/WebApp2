@@ -1,0 +1,8 @@
+<div>
+  <h2>Edit post</h2>
+  <admin-app-theme-form [(theme)]="theme"></admin-app-theme-form>
+  <div class="form-group">
+    <input type="button" value="Save" (click)="save()" class="btn btn-success" />
+    <a routerLink="/admin/themes/1" class="btn btn-danger">Cancel</a>
+  </div>
+</div>

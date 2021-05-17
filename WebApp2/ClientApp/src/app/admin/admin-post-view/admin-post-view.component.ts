@@ -2,7 +2,7 @@ import {Component, HostListener, Input, OnInit} from '@angular/core';
 import {Post} from '../../models/post';
 import {DataService} from '../../services/data.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ViewportScroller} from "@angular/common";
+import {ViewportScroller} from '@angular/common';
 
 @Component({
   selector: 'app-admin-post-view',

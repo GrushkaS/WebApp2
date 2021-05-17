@@ -25,7 +25,12 @@
 
 
         </ul>
-        <a class="btn btn-sm text-success">+</a>
+
+        <input *ngIf="isAdding" type="text" [(ngModel)]="themen.title" class="form-control" />
+        <a *ngIf="isAdding" (click)="saveThemeN()" class="btn btn-sm text-success">Save</a>
+
+        <a *ngIf="!isAdding" (click)="addThemeN()" class="btn btn-sm text-success">+</a>
+
       </div>
     </div>
   </nav>

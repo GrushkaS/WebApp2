@@ -2,7 +2,7 @@
 
   <div class="container-list">
     <div *ngFor="let t of themes">
-      <a (click)="goTheme(t.id)" class="btn btn-sm text-danger">{{t.title}}</a>
+      <a (click)="goTheme(t.id)" class="btn btn-sm font-weight-bold text-danger">{{t.title}}</a>
     </div>
   </div>
 
@@ -11,9 +11,9 @@
       <div class="header">
         <h1>{{theme.title}}</h1>
         <div>
-          <button [routerLink]="['edit']" class="btn btn-sm btn-warning">Edit</button>
+          <button (click)="editTheme(theme.id)" class="btn btn-sm btn-warning">Edit</button>
           <button (click)="deleteTheme(theme.id)" class="btn btn-sm btn-danger">Delete</button>
-          <button class="btn btn-sm btn-success back text-light">+</button>
+          <button (click)="addTheme()" class="btn btn-sm btn-success back text-light">+</button>
         </div>
       </div>
 
@@ -30,4 +30,7 @@
   </div>
 
 </div>
+
+<button (click)="scrollToTop()" *ngIf="pageYOffset > 0" class="btn btn-outline-danger scroll-to-top">Up</button>
+
 

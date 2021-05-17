@@ -1,0 +1,11 @@
+<div>
+  <label>Title</label>
+  <input type="text" [(ngModel)]="theme.title" class="form-control" />
+  <label>ThemeId</label>
+  <input type="number" [(ngModel)]="theme.idTheme" class="form-control" />
+</div>
+<div>
+  <label>Text</label>
+  <quill-editor [(ngModel)]="theme.text"></quill-editor>
+  <!--  <input type="text" [(ngModel)]="post.text" class="form-control" />-->
+</div>

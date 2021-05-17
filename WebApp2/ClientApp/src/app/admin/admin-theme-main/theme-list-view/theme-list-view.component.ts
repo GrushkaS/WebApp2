@@ -1,8 +1,9 @@
-import {Component, DoCheck, Input, OnInit} from '@angular/core';
+import {Component, DoCheck, HostListener, Input, OnInit} from '@angular/core';
 import {ThemeService} from '../../../services/theme.service';
 import {Theme} from '../../../models/theme';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CurthemeService} from '../service/curtheme.service';
+import {ViewportScroller} from "@angular/common";
 
 @Component({
   selector: 'admin-app-theme-list',
@@ -19,7 +20,17 @@ export class ThemeListViewComponent implements OnInit, DoCheck {
   constructor(private themeService: ThemeService,
               private activeRoute: ActivatedRoute,
               private router: Router,
-              private curtheme: CurthemeService) {
+              private curtheme: CurthemeService,
+              private scroll: ViewportScroller) {
+  }
+
+  pageYOffset = 0;
+  @HostListener('window:scroll', ['event']) onScroll(event) {
+    this.pageYOffset = window.pageYOffset;
+  }
+
+  scrollToTop() {
+    this.scroll.scrollToPosition([0, 0]);
   }
 
   ngOnInit() {
@@ -64,6 +75,14 @@ export class ThemeListViewComponent implements OnInit, DoCheck {
   deleteTheme(id: number) {
     this.themeService.deleteTheme(id).subscribe(data => this.loadThemes(this.idTitle));
     this.curtheme.setCurTheme(1);
+  }
+
+  addTheme() {
+    this.router.navigate([this.router.url + '/add']);
+  }
+
+  editTheme(id: number) {
+    this.router.navigate([this.router.url + '/edit/' + id.toString()]);
   }
 
 }

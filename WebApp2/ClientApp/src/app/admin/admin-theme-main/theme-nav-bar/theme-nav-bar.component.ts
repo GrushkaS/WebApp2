@@ -3,6 +3,7 @@ import {ThemeN} from '../../../models/themen';
 import {ThemeService} from '../../../services/theme.service';
 import {Router} from '@angular/router';
 import {CurthemeService} from '../service/curtheme.service';
+import {getLocaleDayPeriods} from "@angular/common";
 
 @Component({
   selector: 'admin-app-theme-nav-bar',
@@ -13,9 +14,12 @@ import {CurthemeService} from '../service/curtheme.service';
 export class ThemeNavBarComponent implements OnInit {
 
   themesn: ThemeN[];
+  themen: ThemeN;
   href: string = '';
+  isAdding: boolean = false;
 
   constructor(private themeService: ThemeService, private router: Router, private  curtheme: CurthemeService) {
+    this.themen = new ThemeN();
   }
 
   goTheme(id: number) {
@@ -35,8 +39,14 @@ export class ThemeNavBarComponent implements OnInit {
     });
   }
 
-  addThemen() {
+  addThemeN() {
+    this.isAdding = true;
+  }
 
+  saveThemeN() {
+    console.log('Title themen: ' + this.themen.title);
+    this.themeService.createThemen(this.themen).subscribe(data => this.loadThemesn());
+    this.isAdding = false;
   }
 
 }

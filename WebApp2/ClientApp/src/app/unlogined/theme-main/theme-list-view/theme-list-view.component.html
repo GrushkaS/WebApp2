@@ -2,7 +2,7 @@
 
   <div class="container-list">
     <div *ngFor="let t of themes">
-      <a (click)="goTheme(t.id)" class="btn btn-sm text-primary">{{t.title}}</a>
+      <a (click)="goTheme(t.id)" class="btn btn-sm text-primary font-weight-bold">{{t.title}}</a>
     </div>
   </div>
 
@@ -27,5 +27,8 @@
   </div>
 
 </div>
+
+<button (click)="scrollToTop()" *ngIf="pageYOffset > 0" class="btn btn-outline-primary scroll-to-top">Up</button>
+
 
 
